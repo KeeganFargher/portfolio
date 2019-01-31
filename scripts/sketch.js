@@ -7,6 +7,9 @@ function setup() {
     canvas.parent('sketch-holder');
     canvas.style('display', 'block');
 
+    canvas.mousePressed(mousePressed);
+    canvas.mouseReleased(mouseReleased);
+
     for (let index = 0; index < windowWidth / 3; index++) {
         drop[index] = new Drop(windowWidth, windowHeight);
     }
@@ -25,4 +28,16 @@ function draw() {
         drop[index].show();
     }
 
+}
+
+function mousePressed() {
+    for (let index = 0; index < drop.length; index++) {
+        drop[index].ySpeed = 0;
+    }
+}
+
+function mouseReleased() {
+    for (let index = 0; index < drop.length; index++) {
+        drop[index].ySpeed = map(drop[index].z, 0, 20, 4, 8);
+    }
 }
