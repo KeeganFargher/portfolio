@@ -35,12 +35,13 @@ function draw() {
 
 function mousePressed() {
     for (let index = 0; index < drop.length; index++) {
-        drop[index].ySpeed = 0;
+        drop[index].speedDivider = 0.1;
     }
+
 }
 
 function mouseReleased() {
     for (let index = 0; index < drop.length; index++) {
-        drop[index].ySpeed = map(drop[index].z, 0, 20, 4, 8);
+        drop[index].speedDivider = 1;
     }
 }

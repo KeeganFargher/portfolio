@@ -7,11 +7,12 @@ class Drop {
         this.z = this.getRandomInt(0, 20);
         this.length = map(this.z, 0, 20, 2, 20);
         this.ySpeed = map(this.z, 0, 20, 4, 8);
-        this.previousYSpeed = 0;
+
+        this.speedDivider = 1;
     }
 
     fall() {
-        this.y += this.ySpeed;
+        this.y += this.ySpeed * this.speedDivider;
 
         if (this.y > height) {
             this.y = this.getRandomInt(0, 50);
@@ -23,7 +24,6 @@ class Drop {
             this.x = this.getRandomInt(0, width);
         }
 
-
     }
 
     show() {
@@ -31,8 +31,6 @@ class Drop {
         strokeWeight(thickness);
         stroke(190, 190, 190);
         line(this.x, this.y, this.x, this.y + this.length);
-
-        this.previousYSpeed = this.ySpeed;
     }
 
     getRandomInt(min, max) {
