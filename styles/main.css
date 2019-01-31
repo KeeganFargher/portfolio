@@ -1,8 +1,37 @@
-.sketch {
-    width: 100vw;
-    height: 100vh;
+body {
+    font-family: 'Raleway', 'Arial', sans-serif !important;
 }
 
-.p5Canvas {
-    display: block;
+h1 {
+    font-family: 'Raleway',
+        'Arial',
+        sans-serif !important;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.sketch {
+    overflow: hidden;
+}
+
+.hero-text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-text-box h1 {
+    color: white;
+}
+
+.hero-text-box h2 {
+    color: white;
+}
+
+.highlight {
+    color: #E31B6D
 }

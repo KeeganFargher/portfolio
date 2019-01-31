@@ -17,6 +17,9 @@ function setup() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    for (let index = 0; index < windowWidth / 3; index++) {
+        drop[index] = new Drop(windowWidth, windowHeight);
+    }
 }
 
 

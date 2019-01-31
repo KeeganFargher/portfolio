@@ -14,10 +14,16 @@ class Drop {
         this.y += this.ySpeed;
 
         if (this.y > height) {
-            this.y = 0;
+            this.y = this.getRandomInt(0, 50);
             this.x = this.getRandomInt(0, width);
             this.ySpeed = map(this.z, 0, 20, 4, 10);
         }
+
+        if (this.x > width || this.x < 0) {
+            this.x = this.getRandomInt(0, width);
+        }
+
+
     }
 
     show() {
