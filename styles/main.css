@@ -34,6 +34,7 @@ h1 {
 
 .sketch {
     overflow: hidden;
+    display: block;
     border-bottom: 2px solid #E31B6D;
 }
 

@@ -28,7 +28,7 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    drops = [];
+    //drops = [];
 }
 
 // function mousePressed() {
