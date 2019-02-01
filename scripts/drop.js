@@ -4,9 +4,13 @@ class Drop {
         this.x = this.getRandomInt(0, width);
         this.y = this.getRandomInt(height, 0);
 
-        this.z = this.getRandomInt(0, 20);
-        this.length = map(this.z, 0, 20, 2, 20);
-        this.ySpeed = map(this.z, 0, 20, 4, 8);
+        this.ySpeedMin = 2;
+        this.ySpeedMax = 7;
+
+        this.z = this.getRandomInt(2, 18);
+        this.length = map(this.z, 0, 20, 2, 15);
+        //this.ySpeed = map(this.z, 0, 20, this.z, this.z);
+        this.ySpeed = this.z / 2;
 
         this.speedDivider = 1;
     }
@@ -17,7 +21,7 @@ class Drop {
         if (this.y > height) {
             this.y = this.getRandomInt(0, 50);
             this.x = this.getRandomInt(0, width);
-            this.ySpeed = map(this.z, 0, 20, 4, 10);
+            this.ySpeed = this.z / 2;
         }
 
         if (this.x > width || this.x < 0) {
@@ -28,8 +32,10 @@ class Drop {
 
     show() {
         let thickness = map(this.z, 0, 20, 1, 3);
+        let opacity = map(this.z, 0, 20, 5, 200);
+
         strokeWeight(thickness);
-        stroke(190, 190, 190);
+        stroke(190, opacity);
         line(this.x, this.y, this.x, this.y + this.length);
     }
 

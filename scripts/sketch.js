@@ -1,4 +1,5 @@
-let drop = [];
+let drops = [];
+const rainCount = 500;
 
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight);
@@ -10,38 +11,37 @@ function setup() {
     canvas.mousePressed(mousePressed);
     canvas.mouseReleased(mouseReleased);
 
-    for (let index = 0; index < windowWidth / 3; index++) {
-        drop[index] = new Drop(windowWidth, windowHeight);
+    for (let index = 0; index < rainCount; index++) {
+        drops.push(new Drop(windowWidth, windowHeight));
     }
 }
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-    for (let index = 0; index < windowWidth / 3; index++) {
-        drop[index] = new Drop(windowWidth, windowHeight);
-    }
-}
-
 
 function draw() {
     background(37, 41, 52);
 
-    for (let index = 0; index < drop.length; index++) {
-        drop[index].fall();
-        drop[index].show();
+    for (let drop of drops) {
+        drop.fall();
+        drop.show();
     }
 
 }
 
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    for (let index = 0; index < rainCount; index++) {
+        drops[index] = new Drop(windowWidth, windowHeight);
+    }
+}
+
 function mousePressed() {
-    for (let index = 0; index < drop.length; index++) {
-        drop[index].speedDivider = 0.1;
+    for (let drop of drops) {
+        drop.speedDivider = 0.1;
     }
 
 }
 
 function mouseReleased() {
-    for (let index = 0; index < drop.length; index++) {
-        drop[index].speedDivider = 1;
+    for (let drop of drops) {
+        drop.speedDivider = 1;
     }
 }
