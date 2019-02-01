@@ -8,12 +8,8 @@ function setup() {
     canvas.parent('sketch-holder');
     canvas.style('display', 'block');
 
-    canvas.mousePressed(mousePressed);
-    canvas.mouseReleased(mouseReleased);
-
-    // for (let index = 0; index < rainCount; index++) {
-    //     drops.push(new Drop(windowWidth, windowHeight));
-    // }
+    // canvas.mousePressed(mousePressed);
+    // canvas.mouseReleased(mouseReleased);
 }
 
 function draw() {
@@ -24,7 +20,7 @@ function draw() {
         drop.show();
     }
 
-    if (random() > 0.2 && drops.length < rainCount) {
+    if (random() > 0.6 && drops.length < rainCount) {
         drops.push(new Drop(windowWidth, windowHeight));
     }
 
@@ -35,15 +31,15 @@ function windowResized() {
     drops = [];
 }
 
-function mousePressed() {
-    for (let drop of drops) {
-        drop.speedDivider = 0.1;
-    }
+// function mousePressed() {
+//     for (let drop of drops) {
+//         drop.speedDivider = 0.1;
+//     }
 
-}
+// }
 
-function mouseReleased() {
-    for (let drop of drops) {
-        drop.speedDivider = 1;
-    }
-}
+// function mouseReleased() {
+//     for (let drop of drops) {
+//         drop.speedDivider = 1;
+//     }
+// }
