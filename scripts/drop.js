@@ -2,14 +2,13 @@ class Drop {
 
     constructor(width, height) {
         this.x = this.getRandomInt(0, width);
-        this.y = this.getRandomInt(height, 0);
+        this.y = this.getRandomInt(20, 40);
 
         this.ySpeedMin = 2;
         this.ySpeedMax = 7;
 
         this.z = this.getRandomInt(2, 18);
-        this.length = map(this.z, 0, 20, 2, 15);
-        //this.ySpeed = map(this.z, 0, 20, this.z, this.z);
+        this.length = map(this.z, 0, 20, 5, 15);
         this.ySpeed = this.z / 2;
 
         this.speedDivider = 1;
@@ -32,7 +31,7 @@ class Drop {
 
     show() {
         let thickness = map(this.z, 0, 20, 1, 3);
-        let opacity = map(this.z, 0, 20, 5, 200);
+        let opacity = map(this.z, 0, 20, 50, 200);
 
         strokeWeight(thickness);
         stroke(190, opacity);

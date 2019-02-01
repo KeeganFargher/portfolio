@@ -1,5 +1,5 @@
 let drops = [];
-const rainCount = 500;
+const rainCount = 200;
 
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight);
@@ -11,9 +11,9 @@ function setup() {
     canvas.mousePressed(mousePressed);
     canvas.mouseReleased(mouseReleased);
 
-    for (let index = 0; index < rainCount; index++) {
-        drops.push(new Drop(windowWidth, windowHeight));
-    }
+    // for (let index = 0; index < rainCount; index++) {
+    //     drops.push(new Drop(windowWidth, windowHeight));
+    // }
 }
 
 function draw() {
@@ -22,6 +22,10 @@ function draw() {
     for (let drop of drops) {
         drop.fall();
         drop.show();
+    }
+
+    if (random() > 0.3 && drops.length < rainCount) {
+        drops.push(new Drop(windowWidth, windowHeight));
     }
 
 }
