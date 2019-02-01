@@ -1,3 +1,6 @@
+/* ====================================== */
+/* Main components                        */
+/* ====================================== */
 body {
     font-family: 'Raleway', 'Arial', sans-serif !important;
 }
@@ -8,14 +11,35 @@ h1 {
         sans-serif !important;
     font-weight: 600;
     font-style: normal;
+    color: #444649;
 }
+
+/* ====================================== */
+/* Reusable Components                    */
+/* ====================================== */
+.header-bar {
+    margin: auto;
+    width: 70px;
+    height: 4px;
+    background: #444649;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+/* ====================================== */
+/* Front Page                             */
+/* ====================================== */
 
 .sketch {
     overflow: hidden;
+    border-bottom: 2px solid #E31B6D;
 }
 
 .hero-text-box {
     position: absolute;
+    width: 100%;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -26,6 +50,8 @@ h1 {
 
 .hero-text-box h1 {
     color: white;
+    font-weight: 500;
+    font-size: 36pt;
 }
 
 .hero-text-box h2 {

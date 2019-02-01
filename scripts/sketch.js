@@ -24,7 +24,7 @@ function draw() {
         drop.show();
     }
 
-    if (random() > 0.3 && drops.length < rainCount) {
+    if (random() > 0.2 && drops.length < rainCount) {
         drops.push(new Drop(windowWidth, windowHeight));
     }
 
@@ -32,9 +32,7 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    for (let index = 0; index < rainCount; index++) {
-        drops[index] = new Drop(windowWidth, windowHeight);
-    }
+    drops = [];
 }
 
 function mousePressed() {

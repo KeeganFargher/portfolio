@@ -1,11 +1,14 @@
 class Drop {
 
     constructor(width, height) {
-        this.x = this.getRandomInt(0, width);
-        this.y = this.getRandomInt(20, 40);
-
         this.ySpeedMin = 2;
         this.ySpeedMax = 7;
+
+        this.yPositionMin = 20;
+        this.yPositionMax = 40;
+
+        this.x = this.getRandomInt(0, width);
+        this.y = this.getRandomInt(this.yPositionMin, this.yPositionMax);
 
         this.z = this.getRandomInt(2, 18);
         this.length = map(this.z, 0, 20, 5, 15);
@@ -18,7 +21,7 @@ class Drop {
         this.y += this.ySpeed * this.speedDivider;
 
         if (this.y > height) {
-            this.y = this.getRandomInt(0, 50);
+            this.y = this.getRandomInt(this.yPositionMin, this.yPositionMax);
             this.x = this.getRandomInt(0, width);
             this.ySpeed = this.z / 2;
         }

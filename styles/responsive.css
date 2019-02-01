@@ -1,0 +1,26 @@
+/* USED TO MAKE HTML ELEMENTS RESPONSIVE */
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+    .hero-text-box {
+        padding: 0 8%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (max-width: 992px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .hero-text-box {
+        /* padding: 0 4%; */
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (max-width: 576px) {
+    .hero-text-box h1 {
+        font-size: 30pt;
+        width: 100%;
+    }
+}
