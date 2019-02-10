@@ -5,13 +5,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+		<!-- Internal -->
 		<link rel="stylesheet" href="styles/bootstrap.min.css" />
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/responsive.css" />
+
+		<!-- External -->
 		<link
 			href="https://fonts.googleapis.com/css?family=Raleway:300,400,500"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/responsive.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+			integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+			crossorigin="anonymous"
+		/>
 
 		<!-- Load canvas first so there's no weird resizing... files are small anyway -->
 		<script src="scripts/p5/p5.min.js"></script>
@@ -31,12 +40,60 @@
 		<!-- Rain Canvas -->
 		<div class="sketch" id="sketch-holder"></div>
 
-		<div class="container mt-5">
+		<!-- About Me -->
+		<section class="container">
 			<h1 class="text-center">About Me</h1>
 			<div class="header-bar "></div>
 
-			<div style="margin-bottom: 800px"></div>
-		</div>
+			<div class="row mt-5">
+				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
+					<span class="dot">
+						<i class="fas fa-carrot"></i>
+					</span>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+						amet posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien
+						non diam bibendum.
+					</p>
+				</div>
+				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
+					<span class="dot">
+						<i class="fas fa-code"></i>
+					</span>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+						amet posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien
+						non diam bibendum.
+					</p>
+				</div>
+				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
+					<span class="dot">
+						<i class="fas fa-hamburger"></i>
+					</span>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+						amet posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien
+						non diam bibendum.
+					</p>
+				</div>
+				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
+					<span class="dot">
+						<i class="fas fa-coffee"></i>
+					</span>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+						amet posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien
+						non diam bibendum.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects -->
+		<section class="container-fluid offset-background">
+			<h1 class="text-center">Projects</h1>
+			<div class="header-bar "></div>
+		</section>
 
 		<script
 			src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
