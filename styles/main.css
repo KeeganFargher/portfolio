@@ -40,11 +40,11 @@ p {
 }
 
 .fas {
-    font-size: 70px;
+    font-size: 40px;
     color: white;
 
     position: absolute;
-    top: 48%;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -59,6 +59,7 @@ p {
     overflow: hidden;
     display: block;
     border-bottom: 2px solid #e31b6d;
+    min-height: 100vh;
 }
 
 .hero-text-box {
@@ -90,14 +91,60 @@ p {
 /* About Me                               */
 /* ====================================== */
 .dot {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     background-color: #04C2C9;
     border-radius: 50%;
     display: inline-block;
     position: relative;
 }
 
+.dot-large {
+    height: 250px;
+    width: 250px;
+    margin: auto;
+}
+
 .dot-div {
     text-align: center;
+}
+
+.img-profile-picture {
+    padding: .25rem;
+    background-color: #04C2C9;
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+}
+
+.skills-background {
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+    height: 30px;
+}
+
+.skills-text {
+    width: 25%;
+    padding: 5px;
+    background-color: #04C2C9;
+    height: 100%;
+}
+
+.skills-text p {
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.skills-percentage {
+    background-color: rgb(2, 155, 160);
+    height: 100%;
+    text-align: center;
+}
+
+.skills-percentage p {
+    color: white;
+    font-size: 15px;
+    padding: 4px;
 }

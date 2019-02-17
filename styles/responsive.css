@@ -19,7 +19,8 @@
 /* Medium devices (tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
     .hero-text-box {
-        /* padding: 0 4%; */
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
 
@@ -28,5 +29,10 @@
     .hero-text-box h1 {
         font-size: 30pt;
         width: 100%;
+    }
+
+    .hero-text-box {
+        padding-left: 8%;
+        padding-right: 8%;
     }
 }
