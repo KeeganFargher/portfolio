@@ -3,9 +3,9 @@ jobs:
     build:
         docker:
             - image: cibuilds/hugo:latest
-        working_directory: ~/public_html
+        working_directory: /var/www/keeganfargher.co.za
         environment:
-            HUGO_BUILD_DIR: ~/portfolio
+            HUGO_BUILD_DIR: portfolio
         steps:
             - run: apk update && apk add git
             - checkout
@@ -20,7 +20,7 @@ jobs:
                   name: deploy
                   command: |
                       if [ "${CIRCLE_BRANCH}" = "master" ]; then
-                        rsync -avce ssh $HUGO_BUILD_DIR $SSH_USER@$SSH_HOST:/var/www/keeganfargher.co.za/D
+                        rsync -avce ssh $HUGO_BUILD_DIR $SSH_USER@$SSH_HOST:/var/www/keeganfargher.co.za
                       else
                         echo "Not master branch, dry run only"
                       fi
