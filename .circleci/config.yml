@@ -4,6 +4,11 @@ jobs: # basic units of work in a run
         docker: # run the steps with Docker
             # CircleCI node images available at: https://hub.docker.com/r/circleci/node/
             - image: circleci/ruby:2.4.1
+        steps:
+            - checkout
+            - attach_workspace:
+                  # Must be absolute path or relative path from working_directory
+                  at: /var/www/keeganfargher.co.za/public_html
 deployment:
     prod:
         branch: master
