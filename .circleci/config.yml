@@ -1,5 +1,9 @@
 dependencies:
-
+jobs: # basic units of work in a run
+    build: # runs not using Workflows must have a `build` job as entry point
+        docker: # run the steps with Docker
+            # CircleCI node images available at: https://hub.docker.com/r/circleci/node/
+            - image: circleci/ruby:2.4.1
 deployment:
     prod:
         branch: master
