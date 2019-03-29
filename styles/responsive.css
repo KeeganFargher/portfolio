@@ -5,8 +5,6 @@
     .hero-text-box {
         /* padding: 0 8%; */
     }
-
-
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -21,6 +19,55 @@
     .hero-text-box {
         padding-left: 10%;
         padding-right: 10%;
+    }
+
+    .skills-container {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    /*
+    TIMELINE
+    */
+
+    .holder {
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline::after {
+        left: 31px;
+        margin-top: 20px;
+    }
+
+    .holder {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .holder::after {
+        width: 35px;
+        height: 35px;
+        top: 18px;
+    }
+
+    .holder::before {
+        left: 60px;
+        border: medium solid #04C2C9;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #04C2C9 transparent transparent;
+    }
+
+    .left::after {
+        left: 16px;
+    }
+
+    .right::after {
+        left: 12px;
+    }
+
+    .right {
+        left: 0%;
     }
 }
 
