@@ -2,6 +2,10 @@
 /* Main components                        */
 /* ====================================== */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Raleway', 'Arial', sans-serif !important;
     -webkit-font-smoothing: antialiased;
@@ -22,6 +26,7 @@ section {
 p {
     font-size: 1.1rem;
 }
+
 
 /* ====================================== */
 /* Reusable Components                    */
@@ -121,7 +126,6 @@ p {
 .sketch {
     overflow: hidden;
     display: block;
-    border-bottom: 2px solid #e31b6d;
     height: 100vh;
 }
 
@@ -148,6 +152,38 @@ p {
 
 .highlight {
     color: #e31b6d;
+}
+
+
+
+/* ====================================== */
+/* Navigation                             */
+/* ====================================== */
+.navbar {
+    background: #1B242F;
+    border-bottom: #04C2C9 2px solid;
+}
+
+.nav-link {
+    color: white;
+    text-transform: uppercase;
+    transition: color .5s;
+}
+
+.nav-link:hover {
+    color: #E31B6D !important;
+}
+
+.active {
+    color: #E31B6D !important;
+}
+
+.navbar-nav:first-child {
+    margin-left: 80px;
+}
+
+.nav-item {
+    margin: 0 20px;
 }
 
 /* ====================================== */
@@ -335,4 +371,9 @@ p {
     font-weight: 300;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
+}
+
+.content__faded p a {
+    color: #252934;
+    font-weight: 500;
 }

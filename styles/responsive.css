@@ -2,152 +2,108 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) {
-    .bouncing-loader>div:first-child {
-        left: 43%;
-    }
+	.bouncing-loader>div:first-child {
+		left: 43%;
+	}
 
-    .bouncing-loader>div:nth-child(2) {
-        animation-delay: 0.2s;
-        left: 50%;
-    }
+	.bouncing-loader>div:nth-child(2) {
+		animation-delay: 0.2s;
+		left: 50%;
+	}
 
-    .bouncing-loader>div:nth-child(3) {
-        animation-delay: 0.4s;
-        left: 57%;
-    }
+	.bouncing-loader>div:nth-child(3) {
+		animation-delay: 0.4s;
+		left: 57%;
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
-    .container {
-        max-width: 970px;
-    }
+	.container {
+		max-width: 970px;
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
-    .hero-text-box {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
+	.hero-text-box {
+		padding-left: 10%;
+		padding-right: 10%;
+	}
 
-    .skills-container {
-        padding-left: 40px !important;
-        padding-right: 40px !important;
-    }
+	.skills-container {
+		padding-left: 40px !important;
+		padding-right: 40px !important;
+	}
 
-    /*
+	/*
     TIMELINE
     */
 
-    .holder {
-        margin-bottom: 1.5rem;
-    }
+	.holder {
+		margin-bottom: 1.5rem;
+	}
 
-    .timeline::after {
-        left: 31px;
-        margin-top: 20px;
-    }
+	.timeline::after {
+		left: 31px;
+		margin-top: 20px;
+	}
 
-    .holder {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
+	.holder {
+		width: 100%;
+		padding-left: 70px;
+		padding-right: 25px;
+	}
 
-    .holder::after {
-        width: 35px;
-        height: 35px;
-        top: 18px;
-    }
+	.holder::after {
+		width: 35px;
+		height: 35px;
+		top: 18px;
+	}
 
-    .holder::before {
-        left: 60px;
-        border: medium solid #04C2C9;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent #04C2C9 transparent transparent;
-    }
+	.holder::before {
+		left: 60px;
+		border: medium solid #04C2C9;
+		border-width: 10px 10px 10px 0;
+		border-color: transparent #04C2C9 transparent transparent;
+	}
 
-    .left::after {
-        left: 16px;
-    }
+	.left::after {
+		left: 16px;
+	}
 
-    .right::after {
-        left: 12px;
-    }
+	.right::after {
+		left: 12px;
+	}
 
-    .right {
-        left: 0%;
-    }
+	.right {
+		left: 0%;
+	}
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media only screen and (max-width: 576px) {
-    .hero-text-box h1 {
-        font-size: 30pt;
-        width: 100%;
-    }
+	.hero-text-box h1 {
+		font-size: 30pt;
+		width: 100%;
+	}
 
-    .hero-text-box {
-        padding-left: 8%;
-        padding-right: 8%;
-    }
+	.hero-text-box {
+		padding-left: 8%;
+		padding-right: 8%;
+	}
 
-    /*
-    TIMELINE
-    */
+	.bouncing-loader>div:first-child {
+		left: 40%;
+	}
 
-    .holder {
-        margin-bottom: 1.5rem;
-    }
+	.bouncing-loader>div:nth-child(2) {
+		animation-delay: 0.2s;
+		left: 50%;
+	}
 
-    .timeline::after {
-        left: 31px;
-        margin-top: 20px;
-    }
-
-    .holder {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-
-    .holder::after {
-        width: 35px;
-        height: 35px;
-        top: 18px;
-    }
-
-    .holder::before {
-        left: 60px;
-        border: medium solid #04C2C9;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent #04C2C9 transparent transparent;
-    }
-
-    .left::after {
-        left: 16px;
-    }
-
-    .right::after {
-        left: 12px;
-    }
-
-    .right {
-        left: 0%;
-    }
-
-    .bouncing-loader>div:first-child {
-        left: 40%;
-    }
-
-    .bouncing-loader>div:nth-child(2) {
-        animation-delay: 0.2s;
-        left: 50%;
-    }
-
-    .bouncing-loader>div:nth-child(3) {
-        animation-delay: 0.4s;
-        left: 60%;
-    }
+	.bouncing-loader>div:nth-child(3) {
+		animation-delay: 0.4s;
+		left: 60%;
+	}
 }

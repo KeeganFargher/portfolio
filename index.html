@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="Description" content="A portfolio of myself Keegan Fargher" />
 		<meta name="theme-color" content="#404655" />
@@ -46,10 +46,44 @@
 		<!-- Rain Canvas -->
 		<div class="sketch" id="sketch-holder"></div>
 
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">About Me</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Timeline</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contact Me</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
 		<!-- About Me -->
 		<section class="container">
-			<h1 class="text-center header">About Me</h1>
-			<div class="header-bar "></div>
+			<h1 class="text-center header wow fadeIn">About Me</h1>
+			<div class="header-bar wow fadeInLeft"></div>
 
 			<div class="row mt-5 wow fadeIn">
 				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
@@ -105,9 +139,9 @@
 						/>
 					</div>
 					<p class="mr-5 ml-5">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet
-						posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien non diam
-						bibendum.
+						I’m a 3rd year student and currently working as a part-time software
+						developer. I specialize in Web Development and Database Management Systems.
+						When I’m not coding, I enjoy gardening and freshly ground coffee.
 					</p>
 				</div>
 
@@ -204,8 +238,8 @@
 
 		<!-- Experience -->
 		<section class="container-fluid offset-background pb-5">
-			<h1 class="text-center header">Timeline</h1>
-			<div class="header-bar mb-5"></div>
+			<h1 class="text-center header wow fadeIn">Timeline</h1>
+			<div class="header-bar mb-5 wow fadeInLeft"></div>
 
 			<div class="timeline">
 				<div class="holder left">
@@ -215,8 +249,13 @@
 						</div>
 						<div class="content__body">
 							<div class="content__faded">
-								<p class="margin-0">The Independent Institute of Education</p>
-								<p>2017 - Present</p>
+								<p class="margin-0">
+									<a href="https://www.iie.ac.za" target="_blank"
+										>The Independent Institute of Education</a
+									>
+									<span class="pr-2"></span> 2017 - Present
+								</p>
+								<p></p>
 							</div>
 							<ul>
 								<li>Java / C# / PHP / Android</li>
@@ -235,14 +274,27 @@
 						</div>
 						<div class="content__body">
 							<div class="content__faded">
-								<p class="margin-0">Netgen Custom Software</p>
-								<p>Dec 2018 - Feb 2019</p>
+								<p>
+									<a href="https://www.netgen.co.za/" target="_blank"
+										>Netgen Custom Software</a
+									>
+									<span class="pr-2"></span>Dec 2018 - Feb 2019
+								</p>
 							</div>
 							<ul>
-								<li>Java / C# / PHP / Android</li>
-								<li>SQL Server / MySQL / Oracle</li>
-								<li>IT Project Management</li>
-								<li>Java / C# / PHP / Android</li>
+								<li>
+									Planned, developed, tested, deployed and maintained web
+									applications.
+								</li>
+								<li>Managed backend database systems.</li>
+								<li>
+									Developed APIs and consumed them in web applications and mobile
+									applications.
+								</li>
+								<li>
+									Effectively translated client requirements into application
+									designs and systems requirements.
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -250,14 +302,27 @@
 				<div class="holder left">
 					<div class="content">
 						<div class="content__header margin-auto">
-							<h4 class="margin-0">Diploma in Software Development</h4>
+							<h4 class="margin-0">Part Time Software Developer</h4>
 						</div>
 						<div class="content__body">
-							<p>
-								Nullam in est non justo vehicula blandit. Cras eu elit quam.
-								Suspendisse non facilisis nisi. Vivamus vel ex purus. Pellentesque
-								lacus sapien.
-							</p>
+							<div class="content__faded">
+								<p>
+									<a href="https://www.netgen.co.za/" target="_blank"
+										>Netgen Custom Software</a
+									>
+									<span class="pr-2"></span>Feb 2019 - Present
+								</p>
+							</div>
+							<ul>
+								<li>
+									Developed a React Native cross-platform application utilizing
+									Bluetooth Low Energy and consumed RESTful APIs.
+								</li>
+								<li>
+									Developed a .NET Core API implementing unit tests and repository
+									pattern. Consumed the API in a Vue.js web application.
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -266,14 +331,14 @@
 
 		<!-- Projects -->
 		<section class="container-fluid">
-			<h1 class="text-center header">Projects</h1>
-			<div class="header-bar "></div>
+			<h1 class="text-center header wow fadeIn">Projects</h1>
+			<div class="header-bar wow fadeInLeft"></div>
 		</section>
 
 		<!-- Contact Me -->
 		<section class="container-fluid offset-background">
-			<h1 class="text-center header">Contact Me</h1>
-			<div class="header-bar "></div>
+			<h1 class="text-center header wow fadeIn">Contact Me</h1>
+			<div class="header-bar wow fadeInLeft"></div>
 		</section>
 
 		<!-- Javascript -->
