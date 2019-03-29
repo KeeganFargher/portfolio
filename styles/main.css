@@ -122,7 +122,7 @@ p {
     overflow: hidden;
     display: block;
     border-bottom: 2px solid #e31b6d;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .hero-text-box {
