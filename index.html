@@ -11,15 +11,26 @@
 		<link rel="stylesheet" href="styles/responsive.css" />
 
 		<!-- External -->
-		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" />
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" />
+		<link rel="stylesheet" href="styles/bootstrap.min.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500"
+			rel="stylesheet"
+		/>
+		<!-- <link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/> -->
 
 		<title>Keegan Fargher | Portfolio</title>
 	</head>
 	<body>
 		<!-- Loader -->
-		<div class="loader-div">
-			<img src="img/loader.gif" alt="" />
+		<div class="bouncing-loader">
+			<div></div>
+			<div></div>
+			<div></div>
 		</div>
 
 		<!-- Full screen banner -->
@@ -99,7 +110,7 @@
 				<!-- Right - Skills -->
 				<div class="col-12 col-md-6 ">
 					<div class=" mb-3">
-						<div class="margin-auto skills-background margin-auto row">
+						<div class="margin-auto skills-background row">
 							<div class="skills-text">
 								<p>HTML</p>
 							</div>
@@ -165,13 +176,58 @@
 			</div>
 		</section>
 
-		<!-- Projects -->
-		<section class="container-fluid offset-background">
-			<h1 class="text-center">Projects</h1>
-			<div class="header-bar "></div>
+		<!-- Experience -->
+		<section class="container-fluid offset-background pb-5">
+			<h1 class="text-center">Experience</h1>
+			<div class="header-bar mb-5"></div>
+
+			<div class="timeline">
+				<div class="holder left">
+					<div class="content">
+						<div class="content__header margin-auto">
+							<h4 class="margin-0">Diploma in Software Development</h4>
+						</div>
+						<div class="content__body">
+							<p>
+								Nullam in est non justo vehicula blandit. Cras eu elit quam.
+								Suspendisse non facilisis nisi. Vivamus vel ex purus. Pellentesque
+								lacus sapien.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="holder right">
+					<div class="content">
+						<div class="content__header margin-auto">
+							<h4 class="margin-0">Software Development Internship</h4>
+						</div>
+						<div class="content__body">
+							<p>
+								Nullam in est non justo vehicula blandit. Cras eu elit quam.
+								Suspendisse non facilisis nisi. Vivamus vel ex purus. Pellentesque
+								lacus sapien.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="holder left">
+					<div class="content">
+						<div class="content__header margin-auto">
+							<h4 class="margin-0">Diploma in Software Development</h4>
+						</div>
+						<div class="content__body">
+							<p>
+								Nullam in est non justo vehicula blandit. Cras eu elit quam.
+								Suspendisse non facilisis nisi. Vivamus vel ex purus. Pellentesque
+								lacus sapien.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 
-		<!-- Experience -->
+		<!-- Projects -->
 		<section class="container-fluid">
 			<h1 class="text-center">Projects</h1>
 			<div class="header-bar "></div>
@@ -183,7 +239,6 @@
 			<div class="header-bar "></div>
 		</section>
 
-		<link rel="stylesheet" href="styles/bootstrap.min.css" />
 		<script src="scripts/p5/p5.min.js"></script>
 		<script src="scripts/p5/p5.dom.min.js"></script>
 		<script src="scripts/drop.js"></script>
@@ -194,7 +249,8 @@
 
 		<script>
 			$(document).ready(() => {
-				$('.loader-div').hide();
+				$('.bouncing-loader').hide();
+				$('.hero-text-box').show();
 			});
 		</script>
 	</body>

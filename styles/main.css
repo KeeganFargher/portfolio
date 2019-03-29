@@ -1,6 +1,7 @@
 /* ====================================== */
 /* Main components                        */
 /* ====================================== */
+
 body {
     font-family: 'Raleway', 'Arial', sans-serif !important;
 }
@@ -32,7 +33,11 @@ p {
 }
 
 .margin-auto {
-    margin: auto;
+    margin: auto !important;
+}
+
+.margin-0 {
+    margin: 0 !important;
 }
 
 .offset-background {
@@ -51,30 +56,46 @@ p {
     transform: translate(-50%, -50%);
 }
 
-.loader-div {
-    background-color: #1a1a1a;
-    position: fixed;
-    z-index: 999;
-    height: 100%;
-    width: 100%;
-    overflow: show;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+@keyframes bouncing-loader {
+    to {
+        opacity: 0.1;
+        transform: translate3d(0, -1rem, 0);
+    }
 }
 
-.loader-div img {
+.bouncing-loader {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #252934;
+    z-index: 2;
+    position: fixed;
+}
+
+.bouncing-loader>div {
     position: absolute;
-    width: 140px;
-    height: 140px;
     top: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin: 3rem 0.2rem;
+    background: #fff;
+    border-radius: 50%;
+    animation: bouncing-loader 0.6s infinite alternate;
+}
+
+.bouncing-loader>div:first-child {
+    left: 47%;
+}
+
+.bouncing-loader>div:nth-child(2) {
+    animation-delay: 0.2s;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
+}
+
+.bouncing-loader>div:nth-child(3) {
+    animation-delay: 0.4s;
+    left: 53%;
 }
 
 
@@ -174,4 +195,161 @@ p {
     color: white;
     font-size: 15px;
     padding: 4px;
+}
+
+/* ====================================== */
+/* Projects                               */
+/* ====================================== */
+
+
+/* ====================================== */
+/* Experience                             */
+/* ====================================== */
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #04C2C9;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    margin-bottom: 3rem;
+}
+
+.holder {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.holder::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -28px;
+    background-color: #04C2C9;
+    border: 4px solid #04C2C9;
+    top: 10px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {
+    left: -4px;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 27px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid #04C2C9;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #04C2C9;
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 27px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid #04C2C9;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #04C2C9 transparent transparent;
+}
+
+.right::after {
+    left: -26px;
+}
+
+.content {
+    background-color: white;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.content__header {
+    background-color: #04C2C9;
+    color: #fff;
+    padding: 15px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.content__header h4 {
+    font-weight: 300;
+    font-variant: small-caps;
+    font-size: 1.3rem;
+}
+
+.content__body {
+    padding: 15px;
+}
+
+.content__body p {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+
+    .holder {
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline::after {
+        left: 31px;
+    }
+
+    .holder {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .holder::after {
+        width: 35px;
+        height: 35px;
+        top: 18px;
+    }
+
+    .holder::before {
+        left: 60px;
+        border: medium solid #04C2C9;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #04C2C9 transparent transparent;
+    }
+
+    .left::after {
+        left: 16px;
+    }
+
+    .right::after {
+        left: 12px;
+    }
+
+    .right {
+        left: 0%;
+    }
 }
