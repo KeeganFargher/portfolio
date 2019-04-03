@@ -22,6 +22,24 @@
 	.container {
 		max-width: 970px;
 	}
+
+	.project-text {
+		margin-top: 5px;
+		padding: 15px 20px;
+	}
+
+	.project-text h3 {
+		font-weight: 500;
+		font-size: 1.3rem;
+		margin-bottom: 5px;
+	}
+
+	.project-text p {
+		color: #e31b6d;
+		font-weight: 400;
+		font-size: 0.9rem;
+
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */

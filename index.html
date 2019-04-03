@@ -7,6 +7,28 @@
 		<meta name="Description" content="A portfolio of myself Keegan Fargher" />
 		<meta name="theme-color" content="#404655" />
 
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/icon/apple-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="60x60" href="/img/icon/apple-icon-60x60.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/icon/apple-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/icon/apple-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/icon/apple-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/icon/apple-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/icon/apple-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/icon/apple-icon-152x152.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-icon-180x180.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="/img/icon/android-icon-192x192.png"
+		/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="96x96" href="/img/icon/favicon-96x96.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/icon/favicon-16x16.png" />
+		<link rel="manifest" href="/img/icon/manifest.json" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="msapplication-TileImage" content="/img/icon/ms-icon-144x144.png" />
+
 		<!-- Internal -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/responsive.css" />
@@ -29,10 +51,11 @@
 	</head>
 	<body>
 		<!-- Loader -->
-		<div class="bouncing-loader">
-			<div></div>
-			<div></div>
-			<div></div>
+		<div class="loader-background">
+			<div class="loader">
+				<div class="double-bounce1"></div>
+				<div class="double-bounce2"></div>
+			</div>
 		</div>
 
 		<div class="line-top"></div>
@@ -62,73 +85,76 @@
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link active" href="#">Home</a>
+						<a class="nav-link active js--home" href="#">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">About Me</a>
+						<a class="nav-link js--about-me" href="#">About Me</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Timeline</a>
+						<a class="nav-link js--timeline" href="#">Timeline</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Projects</a>
+						<a class="nav-link js--projects" href="#">Projects</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Contact Me</a>
+						<a class="nav-link js--contact-me" href="#">Contact Me</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
 
 		<!-- About Me -->
-		<section class="container">
+		<section class="container mt-4" id="about-me">
 			<h1 class="text-center header wow fadeIn">About Me</h1>
-			<div class="header-bar wow fadeInLeft"></div>
+			<div class="header-bar wow fadeInLeft mb-5"></div>
 
 			<div class="row mt-5 wow fadeIn">
+				<!-- FIRST -->
 				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
 					<span class="dot">
-						<i class="fas fa-carrot"></i>
+						<i class="fas fa-pepper-hot"></i>
 					</span>
+					<h4 class="dot-title">Gardening</h4>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet
-						posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien non diam
-						bibendum.
+						I like to garden and grow chillis but I'm still too scared to try one of my
+						ghost peppers 🙅‍♂️
 					</p>
 				</div>
+				<!-- SECOND -->
 				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
 					<span class="dot">
 						<i class="fas fa-code"></i>
 					</span>
+					<h4 class="dot-title">Coding</h4>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet
-						posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien non diam
-						bibendum.
+						posuere sem.
 					</p>
 				</div>
+				<!-- THIRD -->
 				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
 					<span class="dot">
 						<i class="fas fa-hamburger"></i>
 					</span>
+					<h4 class="dot-title">Food</h4>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet
-						posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien non diam
-						bibendum.
+						posuere sem.
 					</p>
 				</div>
+				<!-- FOURTH -->
 				<div class="col-6 col-md-3 dot-div mb-4 mb-sm-0">
 					<span class="dot">
 						<i class="fas fa-coffee"></i>
 					</span>
+					<h4 class="dot-title">Coffee</h4>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet
-						posuere sem. Duis at lacinia turpis. Vivamus ultrices sapien non diam
-						bibendum.
+						I started grinding my own coffee and now I've turned into a coffee snob 🙁
 					</p>
 				</div>
 			</div>
 
-			<div class="row mt-2 mt-sm-5 mb-5">
+			<div class="row mt-5 mt-sm-5 mb-5">
 				<!-- Left - Profile Picture -->
 				<div class="col-12 col-md-6 text-center mb-3 mb-sm-0 wow fadeInLeft">
 					<div class="dot-large mb-3">
@@ -138,7 +164,7 @@
 							alt="Profile Picture of Myself"
 						/>
 					</div>
-					<p class="mr-5 ml-5">
+					<p class="mr-5 ml-5" style="font-size: 1rem;">
 						I’m a 3rd year student and currently working as a part-time software
 						developer. I specialize in Web Development and Database Management Systems.
 						When I’m not coding, I enjoy gardening and freshly ground coffee.
@@ -236,8 +262,8 @@
 			</div>
 		</section>
 
-		<!-- Experience -->
-		<section class="container-fluid offset-background pb-5">
+		<!-- Timeline -->
+		<section class="container-fluid offset-background pb-5" id="timeline">
 			<h1 class="text-center header wow fadeIn">Timeline</h1>
 			<div class="header-bar mb-5 wow fadeInLeft"></div>
 
@@ -258,9 +284,9 @@
 								<p></p>
 							</div>
 							<ul>
-								<li>Java / C# / PHP / Android</li>
-								<li>SQL Server / MySQL / Oracle</li>
-								<li>IT Project Management</li>
+								<li class="pb-1">Java / C# / PHP / Android</li>
+								<li class="pb-1">SQL Server / MySQL / Oracle</li>
+								<li class="pb-1">IT Project Management</li>
 								<li>Java / C# / PHP / Android</li>
 							</ul>
 						</div>
@@ -282,12 +308,12 @@
 								</p>
 							</div>
 							<ul>
-								<li>
+								<li class="pb-1">
 									Planned, developed, tested, deployed and maintained web
 									applications.
 								</li>
-								<li>Managed backend database systems.</li>
-								<li>
+								<li class="pb-1">Managed backend database systems.</li>
+								<li class="pb-1">
 									Developed APIs and consumed them in web applications and mobile
 									applications.
 								</li>
@@ -314,7 +340,7 @@
 								</p>
 							</div>
 							<ul>
-								<li>
+								<li class="pb-1">
 									Developed a React Native cross-platform application utilizing
 									Bluetooth Low Energy and consumed RESTful APIs.
 								</li>
@@ -330,13 +356,46 @@
 		</section>
 
 		<!-- Projects -->
-		<section class="container-fluid">
+		<section class="container mb-5" id="projects">
 			<h1 class="text-center header wow fadeIn">Projects</h1>
-			<div class="header-bar wow fadeInLeft"></div>
+			<div class="header-bar wow fadeInLeft mb-5"></div>
+
+			<div class="row">
+				<div class="col-6 col-sm-6 col-md-4 col-lg-4">
+					<div class="project-container">
+						<img src="/img/project-grinder.jpg" alt="Grinder image" />
+
+						<div class="project-overlay">
+							<div class="project-text">
+								<h3>Grinder</h3>
+								<p>
+									Your number one online shop for fresh coffee beans
+								</p>
+								<button class="btn">LEARN MORE</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-sm-6 col-md-4 col-lg-4">
+					<div class="project-container">
+						<img src="/img/project-jifbot.jpg" alt="Grinder image" />
+
+						<div class="project-overlay">
+							<div class="project-text">
+								<h3>Discord JIF Bot</h3>
+								<p>
+									A discord bot that replies to messages with an appropriate JIF
+								</p>
+								<button class="btn">LEARN MORE</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<!-- Contact Me -->
-		<section class="container-fluid offset-background">
+		<section class="container-fluid offset-background" id="contact-me">
 			<h1 class="text-center header wow fadeIn">Contact Me</h1>
 			<div class="header-bar wow fadeInLeft"></div>
 		</section>
@@ -346,15 +405,16 @@
 		<script src="scripts/p5/p5.dom.min.js"></script>
 		<script src="scripts/drop.js"></script>
 		<script src="scripts/sketch.js"></script>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="scripts/jquery.waypoints.min.js"></script>
 		<script src="scripts/wow.js"></script>
+		<script src="scripts/main.js"></script>
 
 		<script>
 			$(document).ready(() => {
-				$('.bouncing-loader').hide();
-				$('.hero-text-box').show();
+				$('.loader-background').hide();
 				new WOW().init();
 			});
 		</script>

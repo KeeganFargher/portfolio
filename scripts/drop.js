@@ -11,7 +11,7 @@ class Drop {
 
 		this.z = this.getRandomInt(2, 18);
 		this.length = map(this.z, 0, 20, 5, 15);
-		this.ySpeed = this.z / 2;
+		this.ySpeed = this.z / 3;
 
 		this.speedDivider = 1;
 	}
@@ -22,7 +22,7 @@ class Drop {
 		if (this.y > height) {
 			this.y = this.getRandomInt(this.yPositionMin, this.yPositionMax);
 			this.x = this.getRandomInt(0, width);
-			this.ySpeed = this.z / 2;
+			this.ySpeed = this.z / 3;
 		}
 
 		if (this.x > width || this.x < 0) {

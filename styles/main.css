@@ -76,47 +76,77 @@ p {
 }
 
 .line-top {
-    position: sticky;
+    position: fixed;
     border-top: 2px #e31b6d solid;
     top: 0;
     z-index: 99999;
     width: 100%;
 }
 
-.bouncing-loader {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #252934;
-    z-index: 2;
+.loader-background {
     position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #1a1a1a;
+    z-index: 99999;
+    top: 0;
 }
 
-.bouncing-loader>div {
+.loader {
+    width: 60px;
+    height: 60px;
     position: absolute;
     top: 50%;
-    width: 1rem;
-    height: 1rem;
-    margin: 3rem 0.2rem;
-    background: #fff;
-    border-radius: 50%;
-    animation: bouncing-loader 0.6s infinite alternate;
-}
-
-.bouncing-loader>div:first-child {
-    left: 47%;
-}
-
-.bouncing-loader>div:nth-child(2) {
-    animation-delay: 0.2s;
     left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.bouncing-loader>div:nth-child(3) {
-    animation-delay: 0.4s;
-    left: 53%;
+.double-bounce1,
+.double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
 }
+
+.double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+
+    0%,
+    100% {
+        -webkit-transform: scale(0.0)
+    }
+
+    50% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bounce {
+
+    0%,
+    100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+
+    50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
 
 
 /* ====================================== */
@@ -142,7 +172,7 @@ p {
 
 .hero-text-box h1 {
     color: white;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 36pt;
 }
 
@@ -152,6 +182,7 @@ p {
 
 .highlight {
     color: #e31b6d;
+    font-weight: 500;
 }
 
 
@@ -196,6 +227,8 @@ p {
     border-radius: 50%;
     display: inline-block;
     position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .dot-large {
@@ -208,18 +241,29 @@ p {
     text-align: center;
 }
 
+.dot-title {
+    font-weight: 600;
+    color: #000000b3;
+    margin-bottom: 3px;
+    margin-top: 8px;
+}
+
 .img-profile-picture {
     padding: .25rem;
     background-color: #04C2C9;
     border-radius: 50%;
     max-width: 100%;
     height: auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .skills-background {
     width: 100%;
     background-color: rgb(224, 224, 224);
     height: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .skills-text {
@@ -251,7 +295,96 @@ p {
 /* ====================================== */
 /* Projects                               */
 /* ====================================== */
+.project-container {
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+    transition: .5s ease;
+    overflow: hidden;
 
+}
+
+.project-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+}
+
+.project-overlay {
+    background-color: rgba(27, 36, 47, 0.911);
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.project-container:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-container:hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    overflow: hidden;
+
+}
+
+.project-container:hover {
+    border: 2px solid #e31b6d;
+}
+
+.project-text {
+    margin-top: 50px;
+    color: white;
+    padding: 15px 40px;
+    text-align: center;
+}
+
+.project-text h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.project-text p {
+    color: #e31b6d;
+    font-weight: 400;
+    font-size: 1rem;
+
+}
+
+.project-text button {
+    background: transparent;
+    color: white;
+    right: 0;
+    left: 0;
+    position: absolute;
+    border: 2px solid #E31B6D;
+    width: 180px;
+    margin: 0 auto;
+    font-size: 13pt;
+    padding: 7px 0;
+    bottom: 10%;
+    border-radius: 0%;
+}
+
+.project-text button:hover {
+    background: #E31B6D;
+}
+
+.project-text button:focus {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.project-description p {}
 
 /* ====================================== */
 /* Experience                             */

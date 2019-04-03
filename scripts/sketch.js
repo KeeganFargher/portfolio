@@ -1,5 +1,5 @@
 let drops = [];
-const rainCount = 200;
+const rainCount = 100;
 
 function setup() {
 	var canvas = createCanvas(windowWidth, windowHeight);
