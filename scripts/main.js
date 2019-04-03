@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    $('.loader-background').hide();
+    new WOW().init();
+
     scrollToWaypoint(".js--about-me", "#about-me");
     scrollToWaypoint(".js--timeline", "#timeline");
     scrollToWaypoint(".js--projects", "#projects");
