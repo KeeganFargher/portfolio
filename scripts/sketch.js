@@ -1,8 +1,11 @@
 let drops = [];
-const rainCount = 100;
+let rainCount = 100;
 
 function setup() {
 	var canvas = createCanvas(windowWidth, windowHeight);
+	if (windowWidth < 576) {
+		rainCount = 25;
+	}
 
 	// Move the canvas so it’s inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
