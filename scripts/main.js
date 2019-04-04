@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('.loader-background').hide();
+    $('.loader-background').fadeOut();
     new WOW().init();
 
     scrollToWaypoint(".js--about-me", "#about-me");

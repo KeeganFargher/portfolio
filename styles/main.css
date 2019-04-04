@@ -56,6 +56,10 @@ p {
     background-color: #f5f5f5;
 }
 
+.container {
+    background-color: white;
+}
+
 .fas {
     font-size: 40px;
     color: white;
@@ -87,9 +91,10 @@ p {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: #1a1a1a;
+    background: rgb(37, 41, 52);
     z-index: 99999;
     top: 0;
+    animation-fill-mode: forwards;
 }
 
 .loader {
@@ -147,8 +152,6 @@ p {
     }
 }
 
-
-
 /* ====================================== */
 /* Front Page                             */
 /* ====================================== */
@@ -173,7 +176,8 @@ p {
 .hero-text-box h1 {
     color: white;
     font-weight: 400;
-    font-size: 36pt;
+    font-size: 3rem;
+    z-index: 999999;
 }
 
 .hero-text-box h2 {
@@ -184,8 +188,6 @@ p {
     color: #e31b6d;
     font-weight: 500;
 }
-
-
 
 /* ====================================== */
 /* Navigation                             */
@@ -295,10 +297,14 @@ p {
 /* ====================================== */
 /* Projects                               */
 /* ====================================== */
+.project-col {
+    padding: 0 !important;
+}
+
 .project-container {
     position: relative;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-        0 3px 6px rgba(0, 0, 0, 0.23);
+    /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23); */
     cursor: pointer;
     transition: .5s ease;
     overflow: hidden;
