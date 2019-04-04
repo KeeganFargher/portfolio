@@ -25,8 +25,6 @@ function draw() {
 	if (random() > dropChance && drops.length < rainCount) {
 		drops.push(new Drop(windowWidth, windowHeight));
 	}
-
-	console.log(drops.length);
 }
 
 function windowResized() {

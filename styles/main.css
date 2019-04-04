@@ -177,6 +177,7 @@ p {
     font-weight: 400;
     font-size: 3rem;
     z-index: 999999;
+    /* Chrome hack to smooth font... weird interaction with transform */
     -webkit-filter: blur(0.000001px);
 }
 
