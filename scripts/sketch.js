@@ -1,5 +1,5 @@
 let drops = [];
-let rainCount = 100;
+let rainCount = 200;
 let dropChance = 0.6;
 
 function setup() {
