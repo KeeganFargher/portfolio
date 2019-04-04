@@ -3,8 +3,8 @@ class Drop {
 		this.ySpeedMin = 2;
 		this.ySpeedMax = 7;
 
-		this.yPositionMin = 20;
-		this.yPositionMax = 40;
+		this.yPositionMin = 0;
+		this.yPositionMax = 0;
 
 		this.x = this.getRandomInt(0, width);
 		this.y = this.getRandomInt(this.yPositionMin, this.yPositionMax);
@@ -31,11 +31,11 @@ class Drop {
 	}
 
 	show() {
-		let thickness = map(this.z, 0, 20, 1, 3);
+		let thickness = map(this.z, 0, 20, 0.5, 3);
 		let opacity = map(this.z, 0, 20, 50, 200);
 
 		strokeWeight(thickness);
-		stroke(190, opacity);
+		stroke(95, 102, 119, opacity);
 		line(this.x, this.y, this.x, this.y + this.length);
 	}
 

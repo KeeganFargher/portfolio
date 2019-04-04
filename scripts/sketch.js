@@ -1,10 +1,12 @@
 let drops = [];
 let rainCount = 100;
+let dropChance = 0.6;
 
 function setup() {
 	var canvas = createCanvas(windowWidth, windowHeight);
 	if (windowWidth < 576) {
-		rainCount = 25;
+		rainCount = 75;
+		dropChance = 0.9;
 	}
 
 	// Move the canvas so it’s inside our <div id="sketch-holder">.
@@ -20,9 +22,11 @@ function draw() {
 		drop.show();
 	}
 
-	if (random() > 0.6 && drops.length < rainCount) {
+	if (random() > dropChance && drops.length < rainCount) {
 		drops.push(new Drop(windowWidth, windowHeight));
 	}
+
+	console.log(drops.length);
 }
 
 function windowResized() {
