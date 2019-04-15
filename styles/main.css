@@ -20,7 +20,7 @@ h1 {
 }
 
 section {
-    min-height: 100vh;
+    min-height: 100%;
     padding-top: 3rem;
 }
 
@@ -91,7 +91,7 @@ p {
 .loader-background {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background: rgb(37, 41, 52);
     z-index: 99999;
     top: 0;
@@ -160,7 +160,7 @@ p {
 .sketch {
     overflow: hidden;
     display: block;
-    height: 100vh;
+    height: 100%
 }
 
 .hero-text-box {
@@ -170,19 +170,15 @@ p {
     left: 50%;
     transform: translateX(-50%) translateY(calc(-50%));
     text-align: center;
+    color: white;
 }
 
 .hero-text-box h1 {
-    color: white;
     font-weight: 400;
     font-size: 3rem;
     z-index: 999999;
     /* Chrome hack to smooth font... weird interaction with transform */
     -webkit-filter: blur(0.000001px);
-}
-
-.hero-text-box h2 {
-    color: white;
 }
 
 .highlight {
