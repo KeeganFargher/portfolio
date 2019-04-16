@@ -158,7 +158,6 @@ p {
   text-align: center;
   color: white;
 }
-
 .hero-text-box h1 {
   font-weight: 400;
   font-size: 3rem;
@@ -254,7 +253,6 @@ p {
   background-color: #04C2C9;
   height: 100%;
 }
-
 .skills-text p {
   font-size: 15px;
   color: white;
@@ -267,7 +265,6 @@ p {
   height: 100%;
   text-align: center;
 }
-
 .skills-percentage p {
   color: white;
   font-size: 15px;
@@ -287,7 +284,6 @@ p {
   transition: 0.5s ease;
   overflow: hidden;
 }
-
 .project-container img {
   display: block;
   width: 100%;
@@ -328,12 +324,10 @@ p {
   padding: 15px 40px;
   text-align: center;
 }
-
 .project-text h3 {
   font-weight: 600;
   margin-bottom: 20px;
 }
-
 .project-text p {
   color: #e31b6d;
   font-weight: 400;
@@ -354,11 +348,9 @@ p {
   bottom: 10%;
   border-radius: 0%;
 }
-
 .project-text button:hover {
   background: #e31b6d;
 }
-
 .project-text button:focus {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
@@ -484,6 +476,55 @@ p {
 .content__faded p a {
   color: #252934;
   font-weight: 500;
+}
+
+/* ====================================== */
+/* Contact Me                             */
+/* ====================================== */
+.background-dark {
+  background: #252934;
+}
+.background-dark h1 {
+  color: white;
+}
+.background-dark .container {
+  background: transparent;
+}
+.background-dark .header-bar {
+  background: white;
+}
+.background-dark p {
+  color: #04C2C9;
+  font-weight: 600;
+  margin-top: 5rem;
+}
+.background-dark .form-control {
+  background: #1E242C;
+  border-radius: 0;
+  border: 0;
+  margin: 0.5em 0;
+}
+.background-dark form button {
+  background: transparent;
+  color: white;
+  border: 2px solid #04C2C9;
+  width: 180px;
+  margin: 0.5em auto;
+  font-size: 13pt;
+  padding: 7px 0;
+  bottom: 10%;
+  border-radius: 0%;
+}
+.background-dark form button:hover {
+  background: #04C2C9;
+  border-color: #04C2C9;
+}
+.background-dark form button:focus {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.background-dark form button:active {
+  background-color: #0062cc;
+  border-color: #005cbf;
 }
 
 /*# sourceMappingURL=main.css.map */

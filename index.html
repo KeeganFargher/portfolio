@@ -403,10 +403,51 @@
 		</section>
 
 		<!-- Contact Me -->
-		<section class="container-fluid offset-background" id="contact-me">
+		<section class="container-fluid background-dark" id="contact-me">
 			<h1 class="text-center header wow fadeIn">Contact Me</h1>
 			<div class="header-bar wow fadeInLeft"></div>
+
+			<div class="container text-center">
+				<p>Send me an email.</p>
+
+				<form
+					id="contact-me-form"
+					action="https://formspree.io/fargherkeegan@gmail.com"
+					method="POST"
+				>
+					<div class="row">
+						<div class="col-11 col-md-5 margin-auto">
+							<input
+								type="text"
+								name="name"
+								class="form-control"
+								placeholder="Name"
+								required
+							/>
+							<input
+								type="email"
+								name="email"
+								class="form-control"
+								placeholder="Email Address"
+								required
+							/>
+							<textarea
+								type="text"
+								name="message"
+								class="form-control"
+								placeholder="Your Message"
+								rows="4"
+								required
+							></textarea>
+
+							<button class="btn btn-primary float-right">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</section>
+
+		<footer></footer>
 
 		<!-- External CSS -->
 		<link
