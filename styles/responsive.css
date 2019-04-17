@@ -124,4 +124,31 @@
 		animation-delay: 0.4s;
 		left: 60%;
 	}
+
+	.project-col {
+		margin: auto;
+	}
+
+	.project-text {
+		margin-top: 5px;
+		padding: 20px;
+	}
+
+	.project-text h3 {
+		font-weight: 500;
+		font-size: 1.8rem;
+		margin-bottom: 10px;
+	}
+
+	.project-text p {
+		color: #e31b6e;
+		font-weight: 300;
+		font-size: 1rem;
+		letter-spacing: 0.08em;
+	}
+
+	.project-text button {
+		font-size: 13pt;
+		width: 200px
+	}
 }
