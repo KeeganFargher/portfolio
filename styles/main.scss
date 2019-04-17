@@ -1,15 +1,13 @@
-$color-pink: #e31b6d;
-$color-cyan: #04C2C9;
-$color-blue-background: rgb(37, 41, 52);
+@import '_Variables.scss';
 
-$font-main: 'Raleway',
-'Arial',
-sans-serif;
-
-$shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12),
-0 1px 2px rgba(0, 0, 0, 0.24);
-$shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16),
-0 3px 6px rgba(0, 0, 0, 0.23);
+@mixin translate-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 
 /* ====================================== */
 /* Main components                        */
@@ -77,13 +75,7 @@ p {
 .fas {
     font-size: 40px;
     color: white;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    @include translate-center();
 }
 
 @keyframes bouncing-loader {
@@ -114,10 +106,7 @@ p {
 .loader {
     width: 60px;
     height: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include translate-center();
 }
 
 .double-bounce1,
@@ -177,11 +166,8 @@ p {
 }
 
 .hero-text-box {
-    position: absolute;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(calc(-50%));
+    @include translate-center();
     text-align: center;
     color: white;
 
@@ -212,10 +198,10 @@ p {
     color: white;
     text-transform: uppercase;
     transition: color .5s;
-}
 
-.nav-link:hover {
-    color: $color-pink !important;
+    &:hover {
+        color: $color-pink !important;
+    }
 }
 
 .active {
@@ -337,19 +323,21 @@ p {
     transition: .3s ease;
 }
 
-.project-container:hover .project-overlay {
-    opacity: 1;
-}
+.project-container {
+    &:hover {
+        border: 2px solid $color-pink;
+    }
 
-.project-container:hover img {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    overflow: hidden;
+    &:hover .project-overlay {
+        opacity: 1;
+    }
 
-}
+    &:hover img {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        overflow: hidden;
 
-.project-container:hover {
-    border: 2px solid $color-pink;
+    }
 }
 
 .project-text {
@@ -405,19 +393,19 @@ p {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-}
 
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: $color-cyan;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        background-color: $color-cyan;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 .holder {
@@ -425,57 +413,57 @@ p {
     position: relative;
     background-color: inherit;
     width: 50%;
-}
 
-.holder::after {
-    content: ' ';
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: -18px;
-    background-color: white;
-    border: 3px solid $color-cyan;
-    top: 22px;
-    border-radius: 50%;
-    z-index: 1;
+    &::after {
+        content: ' ';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: -18px;
+        background-color: white;
+        border: 3px solid $color-cyan;
+        top: 22px;
+        border-radius: 50%;
+        z-index: 1;
+    }
 }
 
 .left {
     left: -4px;
+
+    &::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 27px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid $color-cyan;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent $color-cyan;
+    }
 }
 
 .right {
     left: 50%;
-}
 
-.left::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 27px;
-    width: 0;
-    z-index: 1;
-    right: 30px;
-    border: medium solid $color-cyan;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent $color-cyan;
-}
+    &::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 27px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid $color-cyan;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent $color-cyan transparent transparent;
+    }
 
-.right::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 27px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid $color-cyan;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent $color-cyan transparent transparent;
-}
-
-.right::after {
-    left: -17px;
+    &::after {
+        left: -17px;
+    }
 }
 
 .content {
@@ -491,35 +479,40 @@ p {
     padding: 15px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-}
 
-.content__header h4 {
-    font-weight: 400;
-    font-variant: small-caps;
-    font-size: 1.3rem;
-}
-
-.content__body ul {
-    padding-left: 20px;
+    h4 {
+        font-weight: 400;
+        font-variant: small-caps;
+        font-size: 1.3rem;
+    }
 }
 
 .content__body {
     padding: 15px;
     font-size: 1rem;
     font-weight: 400;
+
+    ul {
+        padding-left: 20px;
+    }
 }
 
-.content__faded p {
-    color: rgb(143, 142, 142);
-    font-weight: 300;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+.content__faded {
+    p {
+        color: rgb(143, 142, 142);
+        font-weight: 300;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        a {
+            color: #252934;
+            font-weight: 500;
+        }
+    }
 }
 
-.content__faded p a {
-    color: #252934;
-    font-weight: 500;
-}
 
 /* ====================================== */
 /* Contact Me                             */
@@ -563,20 +556,20 @@ p {
             padding: 7px 0;
             bottom: 10%;
             border-radius: 0%;
-        }
 
-        button:hover {
-            background: $color-cyan;
-            border-color: $color-cyan
-        }
+            &:hover {
+                background: $color-cyan;
+                border-color: $color-cyan
+            }
 
-        button:focus {
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        }
+            &:focus {
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            }
 
-        button:active {
-            background-color: #0062cc;
-            border-color: #005cbf;
+            &:active {
+                background-color: #0062cc;
+                border-color: #005cbf;
+            }
         }
     }
 }
