@@ -127,6 +127,9 @@
 
 	.project-col {
 		margin: auto;
+		display: flex;
+		justify-content: center;
+		align-self: center;
 	}
 
 	.project-text {
