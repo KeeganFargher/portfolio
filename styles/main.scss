@@ -1,4 +1,6 @@
-@import '_Variables.scss';
+@import '_Variables';
+@import 'animate.scss';
+@import 'bootstrap.min.scss';
 
 @mixin translate-center {
     position: absolute;
@@ -178,6 +180,7 @@ p {
         z-index: 999999;
         /* Chrome hack to smooth font... weird interaction with transform */
         -webkit-filter: blur(0.000001px);
+        color: white;
     }
 }
 
@@ -573,3 +576,5 @@ p {
         }
     }
 }
+
+@import '_Responsive';
