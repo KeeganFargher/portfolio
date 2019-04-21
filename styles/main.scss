@@ -25,6 +25,11 @@ body {
     overflow-x: hidden;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 h1 {
     font-family: $font-main !important;
     font-weight: 600;

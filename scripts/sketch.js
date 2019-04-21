@@ -5,7 +5,7 @@ let dropChance = 0.6;
 function setup() {
 	var canvas = createCanvas(windowWidth, windowHeight);
 	if (windowWidth < 576) {
-		rainCount = 75;
+		rainCount = 100;
 		dropChance = 0.9;
 	}
 
