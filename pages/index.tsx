@@ -1,28 +1,19 @@
 import React from 'react';
 
 import {
-  Text,
   chakra,
   Box,
   useColorModeValue,
-  Flex,
   Link,
   Button,
-  HStack,
-  Grid,
   SimpleGrid,
   Stack,
   ListItem,
   UnorderedList,
-  ListIcon,
   Img
 } from '@chakra-ui/react';
 
-import { CheckCircleIcon } from '@chakra-ui/icons';
-
-import Navbar from '../components/Navbar';
 import MyWorkCard from '../components/MyWorkCard';
-import HeroAvatarBlob from '../components/HeroAvatarBlob';
 
 export default function Home() {
   return (
