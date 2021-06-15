@@ -92,6 +92,10 @@ export default function Home() {
 
         <chakra.section
           // bgColor="gray.900"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
           height="100vh"
           mx="auto"
         >
