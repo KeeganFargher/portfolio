@@ -8,6 +8,7 @@ export type ThemeContextProps = {
 
 export const ThemeContext = createContext<ThemeContextProps>({});
 
+// @ts-ignore
 export const ThemeProvider = props => {
   return <ThemeContext.Provider {...props} />;
 };

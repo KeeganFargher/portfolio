@@ -157,5 +157,7 @@ export const presets = (brand: string) => {
       900: '#1e1000'
     }
   };
+
+  // @ts-ignore
   return brand ? colors[brand] : colors;
 };
