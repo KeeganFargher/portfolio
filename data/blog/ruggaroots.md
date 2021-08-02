@@ -3,7 +3,7 @@ title: 'Rugga Roots — Case Study'
 date: '2020-01-13'
 tags: ['Case Study', 'Technical']
 draft: false
-summary: '6 weeks to build a complete system in a framework weve never used before, what could go wrong?'
+summary: '6 weeks to build a complete system in a framework weve never used before, using a new architecture and writing tests for the first time, what could go wrong?'
 images: ['/static/images/usapeec.jpg']
 layout: PostSimple
 ---
@@ -14,24 +14,25 @@ Rugga Roots provides extra mural rugby for kids.
 
 ## The Brief / Challenge
 
-The overarching aim of the project was to develop an admin portal and a mobile app that connected food product importers and exports of U.S poultry and egg products through:
+Rugga Roots wanted a system that allowed them to manage their company through:
 
-### A real time chat application
+### Student Capturing
 
-- Allowing cross platform communication between importers and exporters
-- Sending in-app targeted bulk messages to curated groups of users e.g. users who have not yet responded to x event
+- Managing thousands of students across hundreds of schools
+- Generating unique student numbers per school and allowing students to move schools without duplicates
 
-### Viewing upcoming trade shows & events
+### Managing Coach Sessions
 
-- The ability for admins to send real time event invitations to users and generating personalized emails for their invitations
+- Managing thousands of coach sessions per day across many coaches
+- Allowing coaches to capture thousands of attendance records per day
 
-### Viewing trade data for countries in Sub-Saharan Africa
+### Communication
 
-- Comparing yearly and monthly data
+- Sending scheduled, targeted and personalized SMSs to parents and coaches to inform them on changes to lessons or welcoming them to the extra mural
 
-### A "Bulletin Board" for users to post questions and get responses from other users
+### Reports
 
-- Ability to send inquiries, attach pricing lists and quickly respond via the chat service
+- Generating reports on various aspects of the system such as viewing how many students a coach teaches or viewing an attendance log of a student
 
 ## Some of the highlights
 
@@ -67,13 +68,9 @@ For our **app**, we used [React Native](https://reactnative.dev) in combination 
 
 ## Challenges
 
-**Mixing offline-first and real-time is hard:** Trying to send real time messages while having little to no connectivity is difficult. Especially if you are only checking for connectivity every few seconds. We got around this by pushing all of our actions into a queue in Redux and only dispatched them if we had connectivity, with a backoff retry policy if the dispatched actions timed out.
+**Only storing the minimum data needed:** We made the mistake of only storing / keeping track of the data needed at the time and not thinking about future requirements. This came back to bite us a few times when the client asked for a new report or new requirement and we didn't have data for it.
 
-**Prefetching data isn't always the way to go:** We made a decision at the start of development to fetch and store all data when the app loads up. This grew quickly and ended up being 10 - 15 API calls every time the app opens, to fetch all countries, events & trade shows, chats, etc.
-
-Future apps have to call a single endpoint on load, usually `/Config`, which has made our apps a lot easier to figure out when all data has been loaded, and makes expansion a lot easier.
-
-**Not using Typescript:** Our team wasn't familiar with Typescript at the time and decided not to go with it. This was a big mistake and definitely allowed bugs to creep in and just slowed development down in general (what data is being returned from this API?). We decided all future projects would use Typescript with ESLint & Prettier.
+At the bare minimum we now keep an audit log of changes made so if new reports are needed we are able to replay the audit log.
 
 ## How did it all turn out?
 
