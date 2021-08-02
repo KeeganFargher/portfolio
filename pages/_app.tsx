@@ -1,14 +1,28 @@
-import React from 'react';
-import type { AppProps } from 'next/app';
+import "nextra-theme-blog/style.css";
+import Head from "next/head";
+import type { AppProps } from "next/app";
 
-import Theme from '../utils/theme';
+import "../styles/main.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <Theme>
-      <Component {...pageProps} />
-    </Theme>
-  );
+export default function Nextra({ Component, pageProps }: AppProps) {
+	return (
+		<>
+			<Head>
+				<link
+					rel="alternate"
+					type="application/rss+xml"
+					title="RSS"
+					href="/feed.xml"
+				/>
+				<link
+					rel="preload"
+					href="/fonts/Inter-roman.latin.var.woff2"
+					as="font"
+					type="font/woff2"
+					crossOrigin="anonymous"
+				/>
+			</Head>
+			<Component {...pageProps} />
+		</>
+	);
 }
-
-export default MyApp;

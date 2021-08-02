@@ -1,33 +1,41 @@
 {
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:cypress/recommended"
+    "next",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly",
-    "React": "writable"
-  },
-  "parser": "babel-eslint",
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "allowImportExportEverywhere": true,
     "ecmaVersion": 2018,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react"],
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "react/no-children-prop": "off",
-    "react/no-unescaped-entities": "off"
+    "import/no-unresolved": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".ts", ".tsx"]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSpacing": true,
+        "jsxBracketSameLine": true,
+        "singleQuote": false,
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "printWidth": 80,
+        "endOfLine": "auto",
+        "useTabs": true
+      }
+    ]
   }
 }
