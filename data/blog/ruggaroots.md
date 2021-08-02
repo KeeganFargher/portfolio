@@ -1,16 +1,16 @@
 ---
-title: 'USA Poultry and Egg Export Council (USAPEEC) — Case Study'
-date: '2021-03-28'
+title: 'Rugga Roots — Case Study'
+date: '2020-01-13'
 tags: ['Case Study', 'Technical']
 draft: false
-summary: 'A cross platform, offline first, multi-lingual, real-time mobile application and an admin portal that bridges the gap between food product importers worldwide and exporters of U.S. poultry and egg products.'
+summary: '6 weeks to build a complete system in a framework weve never used before, what could go wrong?'
 images: ['/static/images/usapeec.jpg']
 layout: PostSimple
 ---
 
-![usapeec-banner](/static/images/usapeec.jpg)
+![banner](/static/images/ruggaroots/banner.png)
 
-USA Poultry and Egg Export Council's (USAPEEC) mission is to promote exports of U.S. poultry and eggs around the world. USAPEEC is the bridge between food product importers worldwide and exporters of U.S. poultry and egg products. The Council's 200+ member companies account for more than 95% of all the poultry and eggs exported from the U.S.
+Rugga Roots provides extra mural rugby for kids.
 
 ## The Brief / Challenge
 
