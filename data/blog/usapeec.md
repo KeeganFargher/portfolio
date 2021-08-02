@@ -57,7 +57,7 @@ Once the planning and analysis phase had been completed -- we received the requi
 
 We begun by using the requirements and wireframes to design our database and define clear domains to better help architect our system. Below you can see a simplified version of our database:
 
-![ERD](/static/images/usapeec/erd.png)
+![ERD](/static/images/usapeec/ERD.png)
 
 From there, we begun deciding on what tech stack to use.
 
