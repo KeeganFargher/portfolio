@@ -42,7 +42,6 @@ export async function getStaticProps(context) {
 }
 
 export default function PostPage({ posts, initialDisplayPosts, pagination }) {
-  console.log('?', posts)
   return (
     <>
       <PageSeo title={siteMetadata.title} description={siteMetadata.description} />

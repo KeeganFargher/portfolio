@@ -1,11 +1,14 @@
 ---
-title: 'USA Poultry and Egg Export Council (USAPEEC)'
+title: 'USA Poultry and Egg Export Council (USAPEEC) — Case Study'
 date: '2021-03-28'
-tags: ['.NET Core', 'React Native', 'TypeScript', 'SignalR']
+tags: ['Case Study', 'Technical']
 draft: false
 summary: 'A cross platform, offline first, multi-lingual, real-time mobile application and an admin portal that bridges the gap between food product importers worldwide and exporters of U.S. poultry and egg products.'
+images: ['/static/images/usapeec.jpg']
 layout: PostSimple
 ---
+
+![usapeec-banner](/static/images/usapeec.jpg)
 
 USA Poultry and Egg Export Council's (USAPEEC) mission is to promote exports of U.S. poultry and eggs around the world. USAPEEC is the bridge between food product importers worldwide and exporters of U.S. poultry and egg products. The Council's 200+ member companies account for more than 95% of all the poultry and eggs exported from the U.S.
 
@@ -13,13 +16,22 @@ USA Poultry and Egg Export Council's (USAPEEC) mission is to promote exports of 
 
 The overarching aim of the project was to develop an admin portal and a mobile app that connected food product importers and exports of U.S poultry and egg products through:
 
-- A real time chat application
-  - Allowing cross platform communication between importers and exporters
-  - Sending bulk messages to curated groups of users
-- Viewing upcoming trade shows & events
-  - The ability for admins to send real time event invitations to users and generating personalized emails for their invitations
-- Viewing trade data for countries in Sub-Saharan Africa
-- A "Bulletin Board" for users to post questions and get responses from other users
+### A real time chat application
+
+- Allowing cross platform communication between importers and exporters
+- Sending in-app targeted bulk messages to curated groups of users e.g. users who have not yet responded to x event
+
+### Viewing upcoming trade shows & events
+
+- The ability for admins to send real time event invitations to users and generating personalized emails for their invitations
+
+### Viewing trade data for countries in Sub-Saharan Africa
+
+- Comparing yearly and monthly data
+
+### A "Bulletin Board" for users to post questions and get responses from other users
+
+- Ability to send inquiries, attach pricing lists and quickly respond via the chat service
 
 ## Some of the highlights
 
@@ -43,9 +55,9 @@ I was responsible for:
 
 Once the planning and analysis phase had been completed -- we received the requirements along with wireframes and kicked off development.
 
-We begun by using the requirements and wireframes to design our database and define clear domains to better help architect our system.
+We begun by using the requirements and wireframes to design our database and define clear domains to better help architect our system. Below you can see a simplified version of our database:
 
-![drawSQL-export-2021-07-25_20_51.png](https://cms.keeganfargher.co.za/uploads/draw_SQL_export_2021_07_25_20_51_b5a07d7100.png?52271.39999999106)
+![ERD](/static/images/usapeec/erd.png)
 
 From there, we begun deciding on what tech stack to use.
 
@@ -55,16 +67,16 @@ For our **app**, we used React Native in combination with SignalR which provided
 
 ## Challenges
 
-**Mixing offline-first and real-time is hard:** Trying to maintain a web socket connection while having little to no connectivity is difficult. We got around this by pinging our API every x seconds and determining if we are online or not. Only if we could ping our API would we attempt to re-establish our websocket connection. After too many retries we would fallback to long polling.
+**Mixing offline-first and real-time is hard:** Trying to send real time messages while having little to no connectivity is difficult. Especially if you are only checking for connectivity every few seconds. We got around this by pushing all of our actions into a queue in Redux and only dispatched them if we had connectivity, with a backoff retry policy if the dispatched actions timed out.
 
-For sending data, we pushed all of our actions into a queue in Redux and only dispatched them if we had connectivity, with a backoff retry policy if the dispatched actions timed out.
+**Prefetching data isn't always the way to go:** We made a decision at the start of development to fetch and store all data when the app loads up. This grew quickly and ended up being 10 - 15 API calls every time the app opens, to fetch all countries, events & trade shows, chats, etc.
 
-**Prefetching data isn't always the way to go:** We made a decision at the start of development to fetch and store all data when the app loads up. This ended up being 10 - 15 API calls every time the app opens, to fetch all countries, events & trade shows, chats, etc.
+Future apps have to call a single endpoint on load, usually `/Config`, which has made our apps a lot easier to figure out when all data has been loaded, and makes expansion a lot easier.
 
-While this did not make or break the app -- if I had to start this system from scratch today, I would either make one API call which returns all the data or pass in a date to the API to only fetch missing data.
+**Not using Typescript:** Our team wasn't familiar with Typescript at the time and decided not to go with it. This was a big mistake and definitely allowed bugs to creep in and just slowed development down in general (what data is being returned from this API?). We decided all future projects would use Typescript with ESLint & Prettier.
 
 ## How did it all turn out?
 
-Great! The client loved it and we've just wrapped up phase 3.
+Great! The client loved it and we've just wrapped up phase 3. The app is live on both stores and the client is in the process of migrating their users onto the platform! 🥳
 
-## Happy quote from the client ?
+> We just want to thank you guys for your hard work and your professionalism you put into your work. It paid off.
