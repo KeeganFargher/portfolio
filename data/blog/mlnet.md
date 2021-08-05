@@ -46,7 +46,7 @@ Let's run the project and make sure everything is fine:
 
 ![Testing if our API is working](/static/images/mlnet/test.png)
 
-Right click on our project -> Add -> Machine Learning.
+Right click on our project -> Add -> Machine Learning. If you don't see Machine Learning, make sure it's installed correctly.
 
 ![Adding our ML.NET config](/static/images/mlnet/add_ml.png)
 
@@ -68,7 +68,7 @@ Some scenarios allow you to train on Azure but for this scenario we can only tra
 
 ### 3. Data
 
-[You can download our training data from here.](https://drive.google.com/file/d/1TxKm-3ohYJjXm6Iwb_FaU9wyWSQXFicD/view?usp=sharing) It's a list of 5k+ SMSs where some are spam and some are not.
+[You can download the training data from here.](https://drive.google.com/file/d/1TxKm-3ohYJjXm6Iwb_FaU9wyWSQXFicD/view?usp=sharing) It's a list of 5k+ SMSs where some are spam and some are not.
 
 Let's select the CSV file and choose Column1 as the column to predict. **spam** being spam and **ham** being not spam.
 
@@ -106,7 +106,7 @@ Now that our model has been trained, let's integrate it into our API. First lets
 
 `Install-Package Microsoft.Extensions.ML`
 
-This package lets us add our prediction engine as a service. If we go back to our `Startup.cs` file we can add our prediction engine:
+This package lets us add our prediction engine as a service. If we go to our `Startup.cs` file we can add our prediction engine:
 
 ```csharp
 using Microsoft.Extensions.ML;
@@ -123,7 +123,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Great! Now let's use our prediction engine in our API!
 
-Let's create a prediction controller:
+Let's right click on the `Controllers` folder and click Add -> Controller. Let's call it `PredictionController`.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -142,7 +142,7 @@ namespace SmsSpamDetectionApi.Controllers
 }
 ```
 
-Now finally let's create a predict action to use our engine!
+Now let's grab the prediction engine from the constructor and create a predict method to use our engine!
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
