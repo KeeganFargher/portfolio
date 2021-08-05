@@ -34,37 +34,25 @@ Rugga Roots wanted a system that allowed them to manage their company through:
 
 - Generating reports on various aspects of the system such as viewing how many students a coach teaches or viewing an attendance log of a student
 
-## Some of the highlights
-
-**Offline access and data persistence:** Many users of the app would be situated in areas with little to no connectivity. This meant that the app needed to seamlessly work offline. It also needed to work on low end devices and small screen sizes.
-
-**Multi-Lingual:** The app needed to be localized in English, French and Portuguese -- even the data coming from our servers.
-
-**International time zones:** Users needed to be served messages in their correct time zone. A user sending a message from South Africa should see the sent time at 1 PM but the receiver in London should see the sent time as 12 PM.
-
 ## What was my role in all of this?
 
 I was responsible for:
 
-- Liaising with the QA team / Business Analyst / Project Manager and managing expectations on behalf of the dev team
-- Architecting and maintaining the app and web portal
-- Leading the mobile and backend team, delegating work and ensuring code quality
-- Writing Unit, Integration and End-to-End tests
-- Setting up CI / CD for both our mobile app and backend
+- Managing expectations on behalf of the dev team
+- Architecting and maintaining the web portal
+- Leading the backend team, delegating work and ensuring code quality
+- Writing Unit, Integration and End-to-End tests through xUnit and Cypress
+- Setting up CI / CD for our backend through Azure Devops
 
 ## How we solved it
 
-Once the planning and analysis phase had been completed -- we received the requirements along with wireframes and kicked off development.
+Rugga Roots wanted a rebuild and improvement of their old system — one small issue however; The system had been shut down and the only thing we had to go off was screenshots. Adding fuel to the fire, this needed to be completed in 6 weeks using a new framework, new architecture and writing tests for the first time! 😅
 
-We begun by using the requirements and wireframes to design our database and define clear domains to better help architect our system. Below you can see a simplified version of our database:
+We assembled a team of 6 developers and begin looking through the screenshots, trying to map relationships and define domain boundaries. It took a few late nights and many whiteboard markers but we felt comfortable enough with our schema to move forward and start delegating out work.
 
-![ERD](/static/images/usapeec/ERD.png)
+We knew we would miss things and make mistakes so we decided to hold weekly demos with our client — ensuring we don't go too far off course.
 
-From there, we begun deciding on what tech stack to use.
-
-For our **backend**, we decided to use [.NET Core](https://dotnet.microsoft.com) along with [MySQL](https://www.mysql.com) for persistence and [Hangfire](https://www.hangfire.io) for background processing. It is our bread and butter and what the team is most comfortable using. We also went with SignalR for real-time communication.
-
-For our **app**, we used [React Native](https://reactnative.dev) in combination with [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) which provided us with real-time capabilities and [Redux](https://redux.js.org) with Redux-Persist to store data which allowed users to still access data even when they were offline.
+> Firstly I just want to say we really like the system so far. The look and flow is awesome! Can’t wait to start using it.
 
 ## Challenges
 
