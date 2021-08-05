@@ -7,7 +7,7 @@ summary: 'Use ML.NET Model Builder in Visual Studio to train and use your first 
 layout: PostSimple
 ---
 
-![yes0](https://miro.medium.com/max/1400/1*kSw-njRsFwVlqbTElIX8oQ.jpeg)
+![Hacker Man](https://miro.medium.com/max/1400/1*kSw-njRsFwVlqbTElIX8oQ.jpeg)
 
 In this article we're going to take a look at ML.NET Model Builder in Visual Studio and how we can easily train a model to detect whether an SMS is spam or not. 🦄
 
@@ -36,68 +36,35 @@ For this tutorial, we're going to create a Web API that allows us to send some t
 
 First let's select a Web API project in Visual Studio:
 
-![](/static/images/mlnet/create_project.png)
+![Creating a Web API Project](/static/images/mlnet/create_project.png)
 
 And let's ensure we're using .NET 5 and enabled OpenAPI Support:
 
-![](/static/images/mlnet/additional_info.png)
+![Enabling OpenAPI support](/static/images/mlnet/additional_info.png)
 
 Let's run the project and make sure everything is fine:
 
-![](/static/images/mlnet/test.png)
-
-Awesome. So let's start by creating a `Services` folder for our future code to live in and then let's create a `SmsSpamDetectorService` class:
-
-![](/static/images/mlnet/services.png)
-
-```csharp
-namespace SmsSpamDetectionApi.Services.SmsSpamDetectorService
-{
-    public interface ISmsSpamDetectorService
-    {
-        void Detect(string text);
-    }
-
-    public class SmsSpamDetectorService : ISmsSpamDetectorService
-    {
-        public void Detect(string text)
-        {
-            // ...
-        }
-    }
-}
-```
-
-We'll leave it empty for now, but let's register our service before we forget. In our `Startup.cs` file in the `ConfigureServices` method lets add in our new service:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddTransient<ISmsSpamDetectorService, SmsSpamDetectorService>();
-
-    // ...
-}
-```
+![Testing if our API is working](/static/images/mlnet/test.png)
 
 Right click on our project -> Add -> Machine Learning.
 
-![](/static/images/mlnet/add_ml.png)
+![Adding our ML.NET config](/static/images/mlnet/add_ml.png)
 
 Let's call it `MLSpamDetectorModel.mbconfig` and hit `Add`.
 
-![](/static/images/mlnet/add_ml_continued.png)
+![Adding our ML.NET config](/static/images/mlnet/add_ml_continued.png)
 
 ### 1. Scenario
 
 ML.NET Model Builder has a few scenarios to pick from, but today we're going to select `Text classification` as we want to classify the SMS as either Spam or not.
 
-![](/static/images/mlnet/scenario.png)
+![Selecting text classification](/static/images/mlnet/scenario.png)
 
 ### 2. Environment
 
 Some scenarios allow you to train on Azure but for this scenario we can only train on our local machine.
 
-![](/static/images/mlnet/environment.png)
+![Selecting our local environment](/static/images/mlnet/environment.png)
 
 ### 3. Data
 
@@ -105,13 +72,13 @@ Some scenarios allow you to train on Azure but for this scenario we can only tra
 
 Let's select the CSV file and choose Column1 as the column to predict. **spam** being spam and **ham** being not spam.
 
-![](/static/images/mlnet/data.png)
+![Selecting the CSV file to train](/static/images/mlnet/data.png)
 
 ### 4. Train
 
 It's time to start training! During this time ML.NET will find the best algorithm to use that will give us the highest accuracy. Letting the model train for longer will give you higher accuracy. For this tutorial, let's try 60 seconds and see how well we do:
 
-![](/static/images/mlnet/train.png)
+![Training for 60 seconds](/static/images/mlnet/train.png)
 
 After 60 seconds, we can see in the console it only explored 3 algorithms, but the accuracy is quite high at 98.8%!
 
@@ -129,4 +96,92 @@ The Model Builder lets us try out our model. Let's try a known spam message such
 
 > Our records indicate your Pension is under performing to see higher growth and up to 25% cash release reply PENSION for a free review. To opt out reply STOP
 
-And wow! 97% likely to be a spam message.
+And wow! 97% likely to be a spam message. That's pretty good for 60 seconds of training 😅.
+
+![97% accuracy on a spam sms](/static/images/mlnet/try_model.png)
+
+## Integrating into our Web API
+
+Now that our model has been trained, let's integrate it into our API. First lets open the **Package Manager Console** and install:
+
+`Install-Package Microsoft.Extensions.ML`
+
+This package lets us add our prediction engine as a service. If we go back to our `Startup.cs` file we can add our prediction engine:
+
+```csharp
+using Microsoft.Extensions.ML;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    services
+        .AddPredictionEnginePool<MLSpamDetectorModel.ModelInput, MLSpamDetectorModel.ModelOutput>()
+        .FromFile("MLSpamDetectorModel.zip");
+
+    // ...
+}
+```
+
+Great! Now let's use our prediction engine in our API!
+
+Let's create a prediction controller:
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+
+namespace SmsSpamDetectionApi.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class PredictionController : ControllerBase
+    {
+        public PredictionController()
+        {
+
+        }
+    }
+}
+```
+
+Now finally let's create a predict action to use our engine!
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.ML;
+
+namespace SmsSpamDetectionApi.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class PredictionController : ControllerBase
+    {
+        private readonly PredictionEnginePool<MLSpamDetectorModel.ModelInput, MLSpamDetectorModel.ModelOutput> _predictionEngine;
+
+        public PredictionController(PredictionEnginePool<MLSpamDetectorModel.ModelInput, MLSpamDetectorModel.ModelOutput> predictionEngine)
+        {
+            _predictionEngine = predictionEngine;
+        }
+
+        [HttpGet]
+        public IActionResult Predict(string text)
+        {
+            var input = new MLSpamDetectorModel.ModelInput { Feature = text };
+
+            var prediction = _predictionEngine.Predict(input);
+
+            return Ok(prediction);
+        }
+    }
+}
+```
+
+Aaaaaand... if we run it...
+
+![Swagger Home Page](/static/images/mlnet/swagger_1.png)
+
+...
+
+![Swagger Prediction GET Request](/static/images/mlnet/swagger_2.png)
+
+Amazing! We can send our API an SMS and it will give us back a prediction and a score! 🥳
+
+## Conclusion
