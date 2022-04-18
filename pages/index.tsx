@@ -1,18 +1,18 @@
 import { Stack } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
 import { getProjectsOverview } from "../api/apiClient";
-import { ProjectOverviewItem } from "../api/types";
+import { ContentfulPagination, ProjectOverviewItem } from "../api/types";
 import AboutMe from "../components/AboutMe";
+import ContactMe from "../components/ContactMe";
 import HeroSection from "../components/HeroSection";
 import MyProjects from "../components/MyProjects";
 import Seo from "../components/Seo";
 import DefaultContainer from "../containers/DefaultContainer";
 
 type HomePageProps = {
-	data?: ProjectOverviewItem[];
+	data: ContentfulPagination<ProjectOverviewItem>;
 };
 
 const Home: NextPage<HomePageProps> = ({ data }) => {
@@ -33,6 +33,7 @@ const Home: NextPage<HomePageProps> = ({ data }) => {
 					<HeroSection />
 					<AboutMe />
 					<MyProjects projects={data} />
+					<ContactMe />
 				</Stack>
 			</DefaultContainer>
 		</>
@@ -47,14 +48,12 @@ export const getStaticProps = async () => {
 
 		// map is fine here performance wise since there's a small amount
 		// of projects
-		const items = data.items.map((x) => x.fields);
 
 		return {
-			props: { data: items },
+			props: { data },
 			revalidate: 7200,
 		};
 	} catch (error) {
-		console.error("Error fetching projects", error);
 		return {
 			props: { data: null },
 			revalidate: 100,

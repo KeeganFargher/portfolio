@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ContentfulPagination, ProjectOverviewItem } from "./types";
+import { ContentfulPagination, ProjectItem, ProjectOverviewItem } from "./types";
 
 const SPACE_ID = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
 const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_API_KEY;
@@ -14,23 +14,33 @@ const API = axios.create({
 	},
 });
 
+const defaultParams = {
+	content_type: "project",
+	order: "fields.created",
+	access_token: ACCESS_TOKEN,
+};
+
 const getProjectsOverview = async () => {
 	return API.get<ContentfulPagination<ProjectOverviewItem>>(`/entries`, {
 		params: {
-			select: "fields.title,fields.shortDescription,fields.tags,fields.created,sys.id",
-			content_type: "project",
-			order: "fields.created",
-			access_token: ACCESS_TOKEN,
+			select:
+				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id",
+			...defaultParams,
 		},
 	});
 };
 
 const getProjectSingle = async (id: string) => {
-	return API.get<ContentfulPagination<ProjectOverviewItem>>(`/entries`, {
+	if (!id) {
+		throw new Error("[getProjectSingle] ID cannot be null or empty!");
+	}
+
+	return API.get<ContentfulPagination<ProjectItem>>(`/entries`, {
 		params: {
-			select: "fields.title,fields.shortDescription,fields.id",
-			content_type: "project",
-			access_token: ACCESS_TOKEN,
+			select:
+				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id,fields.longDescription",
+			"sys.id": id,
+			...defaultParams,
 		},
 	});
 };

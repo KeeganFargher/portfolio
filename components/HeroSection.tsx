@@ -1,9 +1,5 @@
 import {
-	Flex,
 	Box,
-	chakra,
-	useColorModeValue,
-	HStack,
 	Button,
 	Link,
 	Image,
@@ -18,12 +14,13 @@ import {
 } from "@chakra-ui/react";
 import { FaEnvelope, FaGithub, FaLinkedin, FaFile } from "react-icons/fa";
 import React from "react";
+import personalInfo from "../utils/constants/personalInfo";
 
 function HeroSection() {
 	const [isLargerThan800] = useMediaQuery("800");
 
 	const handleClick = (event: string) => {
-		console.log(event);
+		// Log analytics
 	};
 
 	return (
@@ -58,7 +55,7 @@ function HeroSection() {
 						letterSpacing={{ sm: "-1.2px", md: "-1.8px" }}
 						position="relative"
 						zIndex={1}>
-						Keegan Fargher
+						{personalInfo.name}
 					</Heading>
 				</SlideFade>
 
@@ -95,7 +92,7 @@ function HeroSection() {
 				<SlideFade dir="top" in transition={{ enter: { duration: 0.4, delay: 1.0 } }}>
 					<Wrap spacing={4} shouldWrapChildren width="100%">
 						<WrapItem>
-							<Link href="https://github.com/KeeganFargher" isExternal>
+							<Link href={personalInfo.github} isExternal>
 								<Button
 									leftIcon={<Icon as={FaGithub} color="brand.300" />}
 									position="static"
@@ -107,7 +104,7 @@ function HeroSection() {
 							</Link>
 						</WrapItem>
 						<WrapItem>
-							<Link href="https://www.linkedin.com/in/keegan-fargher-955583151/" isExternal>
+							<Link href={personalInfo.linkedIn} isExternal>
 								<Button
 									leftIcon={<Icon as={FaLinkedin} color="brand.300" />}
 									position="static"
@@ -119,7 +116,7 @@ function HeroSection() {
 							</Link>
 						</WrapItem>
 						<WrapItem>
-							<Link href="mailto:fargherkeegan@gmail.com" isExternal>
+							<Link href={`mailto:${personalInfo.email}`} isExternal>
 								<Button
 									leftIcon={<Icon as={FaEnvelope} color="brand.300" />}
 									transition="0.3s"
@@ -132,7 +129,7 @@ function HeroSection() {
 							</Link>
 						</WrapItem>
 						<WrapItem>
-							<Link href="mailto:fargherkeegan@gmail.com" isExternal>
+							<Link href={personalInfo.cv} isExternal>
 								<Button
 									leftIcon={<Icon as={FaFile} color="brand.300" />}
 									transition="0.3s"

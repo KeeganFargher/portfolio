@@ -1,5 +1,5 @@
 import React from "react";
-import { HStack, Tag, SpaceProps, Wrap, WrapItem } from "@chakra-ui/react";
+import { Tag, SpaceProps, Wrap, WrapItem } from "@chakra-ui/react";
 
 type ProjectCardTagProps = {
 	tags: Array<string>;

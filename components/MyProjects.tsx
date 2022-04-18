@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link, Stack, Heading, Text, SimpleGrid, Flex, Box, Button } from "@chakra-ui/react";
+import { Link, Stack, Heading, Text, SimpleGrid, Box } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
-import { ProjectOverviewItem } from "../api/types";
+import { ContentfulPagination, ProjectOverviewItem } from "../api/types";
 import ProjectCard from "./ProjectCard";
 
 type MyProjectsProps = {
-	projects: ProjectOverviewItem[];
+	projects: ContentfulPagination<ProjectOverviewItem>;
 };
 
 const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
 	const handleClick = (event: string) => {
-		console.log(event);
+		// Log analytics
 	};
 
 	return (
@@ -48,54 +48,15 @@ const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
 						</NextLink>
 					</Stack>
 
-					{projects?.map((project, index) => {
-						// hacky kinda way to make a
-						if (index > 0 && index % 2 === 0) {
-							return <Box />;
-						}
-
+					{projects.items?.map((project, index) => {
 						return (
-							<ProjectCard
-								{...project}
-								imageUrl="https://i.ibb.co/GkcNhB7/usapeec.jpg"
-								index={index}
-							/>
+							<React.Fragment key={project.sys.id}>
+								{index % 2 === 0 && index > 0 && <Box />}
+								<ProjectCard {...project.fields} id={project.sys.id} index={index} />
+								{index > 0 && <Box />}
+							</React.Fragment>
 						);
 					})}
-
-					{/* <ProjectCard
-						title="Vellux Africa"
-						tags={["Azure", "IoT", ".NET Core"]}
-						imageURL="https://i.ibb.co/GkcNhB7/usapeec.jpg"
-						description="A website that provides roadmap for various fields in Programming and help people learn to code for free."
-						deployLink="google.com"
-						link="google.com"
-						githubLink="google.com"
-						index={0}
-					/>
-
-					<ProjectCard
-						title="USAPEEC"
-						tags={["next.js"]}
-						imageURL="https://i.ibb.co/GkcNhB7/usapeec.jpg"
-						description="A website that provides roadmap for various fields in Programming and help people learn to code for free."
-						deployLink="google.com"
-						githubLink="google.com"
-						index={1}
-					/>
-
-					<Box />
-					<Box />
-
-					<ProjectCard
-						title="USAPEEC"
-						tags={["next.js"]}
-						imageURL="https://i.ibb.co/GkcNhB7/usapeec.jpg"
-						description="A website that provides roadmap for various fields in Programming and help people learn to code for free."
-						deployLink="google.com"
-						githubLink="google.com"
-						index={2}
-					/> */}
 				</SimpleGrid>
 			</Stack>
 		</>

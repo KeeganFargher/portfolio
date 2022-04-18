@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
-import DefaultContainer from "../containers/DefaultContainer";
+import DefaultContainer from "../../containers/DefaultContainer";
 
 const Projects = () => {
 	return (

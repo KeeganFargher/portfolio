@@ -3,6 +3,7 @@ import { Text, Image, Link, Box, Heading } from "@chakra-ui/react";
 import React from "react";
 
 import NextLink from "next/link";
+import dateFormat from "dateformat";
 import ProjectCardTag from "./ProjectCardTag";
 import { ProjectOverviewItem } from "../../api/types";
 
@@ -21,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 	index = 0,
 }) => {
 	const handleClick = (event: string) => {
-		console.log(event);
+		// Log analytics
 	};
 
 	return (
@@ -42,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 							<Image
 								borderRadius="lg"
 								src={imageUrl}
-								alt="some good alt text"
+								alt="Abstract image interpretation of the project title"
 								objectFit="contain"
 							/>
 						</Link>
@@ -70,15 +71,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 					</Heading>
 
 					<Text fontSize="sm" color="gray.300">
-						{new Date(created).toLocaleDateString()}
+						{dateFormat(created, "mmmm d, yyyy")}
 					</Text>
 
 					<Text as="p" marginTop="2" color="gray.300" fontSize="lg">
 						{shortDescription}
 					</Text>
 
-					<NextLink href={`/projects/${id}`} passHref>
-						<Link isExternal href={`/projects/${id}`}>
+					<NextLink href="/projects/[id]/" as={`/projects/${id}`} passHref>
+						<Link href={`/projects/${id}`} onClick={() => handleClick("project_click")}>
 							<Text display={{ base: "none", md: "block" }} fontSize={{ base: "md", md: "lg" }}>
 								Read Case Study &rarr;
 							</Text>

@@ -42,6 +42,10 @@ const shadows = {
 	outline: "0 0 0 3px rgba(159, 122, 234, 0.6)",
 };
 
+const borders = {
+	borderColor: "yellow",
+};
+
 const fonts = {
 	...chakraTheme.fonts,
 	body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
@@ -63,15 +67,29 @@ const Link = {
 	},
 };
 
+const Input = {
+	baseStyle: {
+		field: {
+			color: "white",
+		},
+	},
+	defaultProps: {
+		focusBorderColor: "brand.300",
+	},
+};
+
 const overrides = {
 	...chakraTheme,
 	components: {
 		Link,
+		Input,
+		Textarea: Input,
 	},
 	config,
 	colors,
 	fonts,
 	shadows,
+	borders,
 	breakpoints,
 	fontWeights: {
 		normal: 300,
