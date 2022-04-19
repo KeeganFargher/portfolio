@@ -25,6 +25,7 @@ const getProjectsOverview = async () => {
 		params: {
 			select:
 				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id",
+			limit: 3,
 			...defaultParams,
 		},
 	});
