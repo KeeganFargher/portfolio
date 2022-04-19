@@ -1,7 +1,7 @@
 export default {
 	name: "Keegan Fargher",
 	email: "fargherkeegan@gmail.com",
-	cv: "",
+	cv: "https://drive.google.com/file/d/11a9sggeW9T83J1dVzSWhg95eKnjrdYHo/view",
 	recipes: "https://recipes.keeganfargher.co.za/",
 	github: "https://github.com/KeeganFargher",
 	linkedIn: "https://www.linkedin.com/in/keegan-fargher-955583151/",
