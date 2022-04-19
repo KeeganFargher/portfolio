@@ -84,7 +84,6 @@ const ContactMeForm: React.FC = () => {
 						<FormControl isInvalid={errors.name !== undefined && touched.name}>
 							<FormLabel htmlFor="name">Name</FormLabel>
 							<Input
-								autoFocus
 								autoComplete="name"
 								placeholder="Fred Flintstone"
 								onChange={handleChange("name")}
