@@ -14,12 +14,20 @@ import {
 	ListIcon,
 	ListItem,
 } from "@chakra-ui/react";
+import { usePlausible } from "next-plausible";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import personalInfo from "../utils/constants/personalInfo";
 
 const AboutMe = () => {
 	const { isOpen, onToggle } = useDisclosure();
+
+	const logEvent = usePlausible();
+
+	const onReadMoreClick = () => {
+		logEvent("about_me_read_more");
+		onToggle();
+	};
 
 	return (
 		<>
@@ -51,7 +59,7 @@ const AboutMe = () => {
 						<br />
 						<br />
 						If you want to learn a bit more about what I do on a day to day basis,{" "}
-						<Button colorScheme="brand" onClick={() => onToggle()} variant="link">
+						<Button colorScheme="brand" onClick={onReadMoreClick} variant="link">
 							{isOpen ? "show less" : "show more"}
 						</Button>
 						.

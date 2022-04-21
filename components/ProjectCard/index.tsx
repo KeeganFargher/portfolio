@@ -3,6 +3,7 @@ import { Text, Image, Link, Box, Heading } from "@chakra-ui/react";
 import React from "react";
 
 import dateFormat from "dateformat";
+import { usePlausible } from "next-plausible";
 import ProjectCardTag from "./ProjectCardTag";
 import { ProjectOverviewItem } from "../../api/types";
 import ProjectLink from "./ProjectLink";
@@ -21,9 +22,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 	tags,
 	index = 0,
 }) => {
-	const handleClick = (event: string) => {
-		// Log analytics
-	};
+	const logEvent = usePlausible();
+
+	const handleClick = (event: string) => logEvent(event);
 
 	return (
 		<>
@@ -72,13 +73,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 						{dateFormat(created, "mmmm d, yyyy")}
 					</Text>
 
-					<Text
-						height={{ base: "auto", md: "190px" }}
-						as="p"
-						marginTop="2"
-						marginBottom="2"
-						color="gray.200"
-						fontSize="md">
+					<Text as="p" marginTop="2" marginBottom="2" color="gray.200" fontSize="md">
 						{shortDescription}
 					</Text>
 
