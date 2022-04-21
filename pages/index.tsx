@@ -46,9 +46,6 @@ export const getStaticProps = async () => {
 	try {
 		const { data } = await getProjectsOverview();
 
-		// map is fine here performance wise since there's a small amount
-		// of projects
-
 		return {
 			props: { data },
 			revalidate: 7200,

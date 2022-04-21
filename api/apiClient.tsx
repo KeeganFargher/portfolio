@@ -16,16 +16,16 @@ const API = axios.create({
 
 const defaultParams = {
 	content_type: "project",
-	order: "fields.created",
+	order: "-fields.created",
 	access_token: ACCESS_TOKEN,
 };
 
-const getProjectsOverview = async () => {
+const getProjectsOverview = async (limit = 3) => {
 	return API.get<ContentfulPagination<ProjectOverviewItem>>(`/entries`, {
 		params: {
 			select:
 				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id",
-			limit: 3,
+			limit,
 			...defaultParams,
 		},
 	});

@@ -58,6 +58,14 @@ const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
 						);
 					})}
 				</SimpleGrid>
+
+				<NextLink href="/projects">
+					<Link onClick={() => handleClick("featuredprojects_explore more")}>
+						<Text textAlign="center" fontSize="2xl">
+							Explore more &rarr;
+						</Text>
+					</Link>
+				</NextLink>
 			</Stack>
 		</>
 	);

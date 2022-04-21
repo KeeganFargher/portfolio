@@ -14,14 +14,15 @@ import {
 } from "@chakra-ui/react";
 import { FaEnvelope, FaGithub, FaLinkedin, FaFile } from "react-icons/fa";
 import React from "react";
+import { usePlausible } from "next-plausible";
 import personalInfo from "../utils/constants/personalInfo";
 
 function HeroSection() {
 	const [isLargerThan800] = useMediaQuery("800");
 
-	const handleClick = (event: string) => {
-		// Log analytics
-	};
+	const logEvent = usePlausible();
+
+	const handleClick = (event: string) => logEvent(event);
 
 	return (
 		<>

@@ -2,10 +2,10 @@
 import { Text, Image, Link, Box, Heading } from "@chakra-ui/react";
 import React from "react";
 
-import NextLink from "next/link";
 import dateFormat from "dateformat";
 import ProjectCardTag from "./ProjectCardTag";
 import { ProjectOverviewItem } from "../../api/types";
+import ProjectLink from "./ProjectLink";
 
 type ProjectCardProps = ProjectOverviewItem & {
 	imageUrl: string;
@@ -29,15 +29,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 		<>
 			<Box
 				width="full"
-				marginTop={{ base: "1", sm: "3" }}
+				marginTop={{ base: "1", md: "3" }}
 				display="flex"
-				flexDirection={{ base: "column", sm: index % 2 === 0 ? "row" : "row-reverse" }}
+				flexDirection={{ base: "column", md: index % 2 === 0 ? "row" : "row-reverse" }}
 				justifyContent="space-between">
 				<Box display="flex" flex="1" marginRight="3" position="relative" alignItems="center">
 					<Box
-						width={{ base: "100%", sm: "85%" }}
+						width={{ base: "100%", md: "85%" }}
 						zIndex="2"
-						marginLeft={{ base: "0", sm: "5%" }}
+						marginLeft={{ base: "0", md: "5%" }}
 						marginTop="5%">
 						<Link textDecoration="none" _hover={{ textDecoration: "none" }}>
 							<Image
@@ -62,29 +62,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 					flex="1"
 					flexDirection="column"
 					justifyContent="center"
-					marginTop={{ base: "3", sm: "0" }}>
+					marginTop={{ base: "3", md: "0" }}>
 					<ProjectCardTag tags={tags} />
-					<Heading marginTop="2">
-						<Link textDecoration="none" _hover={{ textDecoration: "none" }}>
-							{title}
-						</Link>
-					</Heading>
+					<ProjectLink id={id} handleClick={handleClick}>
+						<Heading marginTop="2">{title}</Heading>
+					</ProjectLink>
 
-					<Text fontSize="sm" color="gray.300">
+					<Text fontSize="md" color="gray.400">
 						{dateFormat(created, "mmmm d, yyyy")}
 					</Text>
 
-					<Text as="p" marginTop="2" color="gray.300" fontSize="lg">
+					<Text
+						height={{ base: "auto", md: "190px" }}
+						as="p"
+						marginTop="2"
+						marginBottom="2"
+						color="gray.200"
+						fontSize="md">
 						{shortDescription}
 					</Text>
 
-					<NextLink href="/projects/[id]/" as={`/projects/${id}`} passHref>
-						<Link href={`/projects/${id}`} onClick={() => handleClick("project_click")}>
-							<Text display={{ base: "none", md: "block" }} fontSize={{ base: "md", md: "lg" }}>
-								Read Case Study &rarr;
-							</Text>
-						</Link>
-					</NextLink>
+					<ProjectLink id={id} handleClick={handleClick}>
+						<Text fontSize={{ base: "md", md: "lg" }}>Read Case Study &rarr;</Text>
+					</ProjectLink>
 				</Box>
 			</Box>
 		</>

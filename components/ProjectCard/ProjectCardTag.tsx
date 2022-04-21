@@ -9,10 +9,10 @@ type ProjectCardTagProps = {
 const ProjectCardTag: React.FC<ProjectCardTagProps> = ({ tags, marginTop }) => {
 	return (
 		<Wrap spacing={2} marginTop={marginTop}>
-			{tags.map((tag) => {
+			{tags?.map((tag) => {
 				return (
 					<WrapItem key={tag}>
-						<Tag size="md" variant="solid" colorScheme="brand">
+						<Tag size="md" variant="subtle" colorScheme="brand">
 							{tag}
 						</Tag>
 					</WrapItem>
