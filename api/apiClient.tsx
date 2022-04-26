@@ -24,7 +24,7 @@ const getProjectsOverview = async (limit = 3) => {
 	return API.get<ContentfulPagination<ProjectOverviewItem>>(`/entries`, {
 		params: {
 			select:
-				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id",
+				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id,sys.updatedAt",
 			limit,
 			...defaultParams,
 		},
@@ -39,7 +39,7 @@ const getProjectSingle = async (id: string) => {
 	return API.get<ContentfulPagination<ProjectItem>>(`/entries`, {
 		params: {
 			select:
-				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id,fields.longDescription",
+				"fields.title,fields.shortDescription,fields.tags,fields.created,fields.imageUrl,sys.id,sys.updatedAt,fields.longDescription",
 			"sys.id": id,
 			...defaultParams,
 		},

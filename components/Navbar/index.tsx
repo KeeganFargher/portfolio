@@ -36,7 +36,6 @@ const Navbar = () => {
 						<Box color="textSecondary">
 							<NavbarItem href="/">Home</NavbarItem>
 							<NavbarItem href="/projects">Projects</NavbarItem>
-							<NavbarItem href="/blog">Blog</NavbarItem>
 						</Box>
 					) : (
 						<Icon as={AiOutlineMenu} w={7} h={7} onClick={onOpen} />

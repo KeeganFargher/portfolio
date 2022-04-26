@@ -36,13 +36,13 @@ const AboutMe = () => {
 					<Heading fontSize="2xl">About Me</Heading>
 
 					<Text color="textSecondary" fontSize={{ base: "14px", md: "18px" }} whiteSpace="pre-line">
-						Hey there 👋, I'm Keegan Fargher, I've been close to a computer since an early age, and
-						been passionate about it ever since.
+						Hey there 👋, I'm Keegan Fargher, I've always had an interest in computers, even from a
+						young age, and coding has been the natural progression of my passion.
 						<br />
 						<br />
 						I am currently working at Netgen Custom Software where we build backend systems / APIs
 						using .NET Core and mobile applications using React Native. In my 3 years at the
-						company, I have architected, developed, maintained and led many successful projects,
+						company, I have architected, developed, maintained, and led many successful projects,
 						some having 60k+ active users.
 						<br />
 						<br />

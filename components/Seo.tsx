@@ -18,7 +18,7 @@ const Seo = () => {
 				property="og:description"
 				content="Full stack .NET Core and React Native engineer working at Netgen Custom Software"
 			/>
-			<meta property="og:image" content="https://i.imgur.com/AOMvmeJ.png" />
+			<meta property="og:image" content="https://i.ibb.co/yNpWJ6y/asd.png" />
 
 			<meta property="twitter:card" content="summary_large_image" />
 			<meta property="twitter:url" content="https://keeganfargher.co.za/" />
@@ -27,7 +27,7 @@ const Seo = () => {
 				property="twitter:description"
 				content="Full stack .NET Core and React Native engineer working at Netgen Custom Software"
 			/>
-			<meta property="twitter:image" content="https://i.imgur.com/AOMvmeJ.png" />
+			<meta property="twitter:image" content="https://i.ibb.co/yNpWJ6y/asd.png" />
 		</>
 	);
 };

@@ -93,18 +93,6 @@ function HeroSection() {
 				<SlideFade dir="top" in transition={{ enter: { duration: 0.4, delay: 1.0 } }}>
 					<Wrap spacing={4} shouldWrapChildren width="100%">
 						<WrapItem>
-							<Link href={personalInfo.github} isExternal>
-								<Button
-									leftIcon={<Icon as={FaGithub} color="brand.300" />}
-									position="static"
-									size={isLargerThan800 ? "md" : "sm"}
-									color="white"
-									onClick={() => handleClick("introduction_github")}>
-									Github
-								</Button>
-							</Link>
-						</WrapItem>
-						<WrapItem>
 							<Link href={personalInfo.linkedIn} isExternal>
 								<Button
 									leftIcon={<Icon as={FaLinkedin} color="brand.300" />}

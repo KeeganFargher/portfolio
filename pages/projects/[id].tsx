@@ -1,12 +1,14 @@
 import { Avatar, Box, Heading, Stack, Text, Image } from "@chakra-ui/react";
-import { NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import React from "react";
 import { serialize } from "next-mdx-remote/serialize";
+import { ArticleJsonLd, NextSeo } from "next-seo";
 // @ts-ignore
 import mdxPrism from "mdx-prism";
 import dateFormat from "dateformat";
 import readingTime from "reading-time";
+import axios from "axios";
 import { getProjectsOverview, getProjectSingle } from "../../api/apiClient";
 import { Item, ProjectItem } from "../../api/types";
 import MdxComponents from "../../components/MdxComponents";
@@ -19,24 +21,67 @@ type ProductPageProps = {
 	source: MDXRemoteSerializeResult<Record<string, unknown>>;
 };
 
-type StaticPropsParams = {
-	params: {
-		id: string;
-	};
-};
-
 const Project: NextPage<ProductPageProps> = ({ metadata, source }) => {
 	if (!metadata) {
 		return <Box>Could not find the project!</Box>;
 	}
 
+	const { title, created, longDescription, imageUrl, shortDescription } = metadata?.fields ?? {};
+	const { id, updatedAt } = metadata?.sys ?? {};
+
 	return (
 		<>
+			<NextSeo
+				title={title}
+				description={shortDescription}
+				canonical={`https://keeganfargher.co.za/projects/${id}`}
+				openGraph={{
+					url: `https://keeganfargher.co.za/projects/${id}`,
+					site_name: personalInfo.name,
+					title,
+					description: shortDescription,
+					type: "article",
+					article: {
+						authors: [personalInfo.name],
+						publishedTime: created.toString(),
+						modifiedTime: updatedAt,
+						tags: ["Programming", "Web Development", "Software Engineering"],
+					},
+					images: [
+						{
+							url: imageUrl,
+							alt: title,
+						},
+					],
+				}}
+				additionalMetaTags={[
+					{ property: "twitter:card", content: "summary_large_image" },
+					{
+						property: "twitter:url",
+						content: `https://keeganfargher.co.za/projects/${id}`,
+					},
+					{ property: "twitter:title", content: title },
+					{ property: "twitter:description", content: shortDescription },
+					{ property: "twitter:image", content: imageUrl },
+				]}
+			/>
+			<ArticleJsonLd
+				url={`https://keeganfargher.co.za/projects/${id}`}
+				title={title}
+				images={[imageUrl]}
+				datePublished={created.toString()}
+				dateModified={updatedAt.toString()}
+				authorName={personalInfo.name}
+				publisherName={personalInfo.name}
+				publisherLogo={personalInfo.profilePictureUrl}
+				description={shortDescription}
+			/>
+
 			<DefaultContainer>
 				<Stack my="15vh" justifyContent="center" alignItems="center">
 					<Stack w={["100vw", "95vw"]} maxW="680px" p={["20px", "20px", "24px", "24px"]}>
 						<Heading fontSize={["3xl", "3xl", "5xl", "5xl"]} color="displayColor">
-							{metadata.fields.title}
+							{title}
 						</Heading>
 
 						<Stack
@@ -52,32 +97,18 @@ const Project: NextPage<ProductPageProps> = ({ metadata, source }) => {
 									border="1px solid textPrimary"
 								/>
 								<Text fontSize={["xs", "xs", "sm", "sm"]} color="textPrimary">
-									{personalInfo.name} &bull; {dateFormat(metadata.fields.created, "mmmm d, yyyy")}
+									{personalInfo.name} &bull; {dateFormat(created, "mmmm d, yyyy")}
 								</Text>
 							</Stack>
 							<Stack>
 								<Text fontSize={["xs", "xs", "sm", "sm"]} color="textSecondary">
-									{readingTime(metadata.fields.longDescription).text} &bull; 2342 views
+									{readingTime(longDescription).text}
 								</Text>
 							</Stack>
 						</Stack>
 
-						<Stack
-							bg="secondary"
-							borderRadius="10px"
-							minH="200px"
-							border="1px"
-							borderColor={{ base: "#333", md: "borderColor" }}>
-							<Image
-								src={metadata.fields.imageUrl}
-								borderRadius="10px"
-								width={1366}
-								height={892}
-								w="auto"
-								h="auto"
-								mx="auto"
-								alt=""
-							/>
+						<Stack borderRadius="10px" minH="200px">
+							<Image src={imageUrl} borderRadius="10px" w="100%" h="auto" mx="auto" alt="" />
 						</Stack>
 
 						<PostContainer>
@@ -92,27 +123,26 @@ const Project: NextPage<ProductPageProps> = ({ metadata, source }) => {
 
 export default Project;
 
-export async function getStaticPaths() {
-	const { data } = await getProjectsOverview();
+export const getStaticPaths: GetStaticPaths = async () => {
+	const { data } = await getProjectsOverview(200);
 
 	return {
 		paths: data.items.map((item) => ({
 			params: { id: item.sys.id },
 		})),
-		fallback: false,
+		fallback: "blocking",
 	};
-}
+};
 
-export const getStaticProps = async ({ params }: StaticPropsParams) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 	try {
 		const { id } = params ?? {};
 
-		const { data } = await getProjectSingle(id);
+		const { data } = await getProjectSingle(id as string);
 
 		const project = data.items?.[0];
 
-		const source = project.fields.longDescription;
-		const mdxSource = await serialize(source, {
+		const mdxSource = await serialize(project.fields.longDescription, {
 			mdxOptions: {
 				rehypePlugins: [mdxPrism],
 			},
@@ -127,8 +157,9 @@ export const getStaticProps = async ({ params }: StaticPropsParams) => {
 		};
 	} catch (error) {
 		return {
-			props: { data: null },
-			revalidate: 360,
+			notFound: true,
+			props: {},
+			revalidate: 6400,
 		};
 	}
 };
