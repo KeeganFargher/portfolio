@@ -153,13 +153,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 				metadata: project,
 				source: mdxSource,
 			},
-			revalidate: 300,
+			revalidate: false,
 		};
 	} catch (error) {
 		return {
 			notFound: true,
 			props: {},
-			revalidate: 6400,
+			revalidate: 5,
 		};
 	}
 };
