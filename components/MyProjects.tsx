@@ -50,11 +50,12 @@ const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
 
 					{projects.items?.map((project, index) => {
 						return (
-							<React.Fragment key={project.sys.id}>
-								{index % 2 === 0 && index > 0 && <Box />}
-								<ProjectCard {...project.fields} id={project.sys.id} index={index} />
-								{index > 0 && <Box />}
-							</React.Fragment>
+							<ProjectCard
+								key={project.sys.id}
+								{...project.fields}
+								id={project.sys.id}
+								index={index}
+							/>
 						);
 					})}
 				</SimpleGrid>

@@ -7,6 +7,7 @@ import { usePlausible } from "next-plausible";
 import ProjectCardTag from "./ProjectCardTag";
 import { ProjectOverviewItem } from "../../api/types";
 import ProjectLink from "./ProjectLink";
+import ChakraNextImage from "../ChakraNextImage";
 
 type ProjectCardProps = ProjectOverviewItem & {
 	imageUrl: string;
@@ -40,14 +41,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 						zIndex="2"
 						marginLeft={{ base: "0", md: "5%" }}
 						marginTop="5%">
-						<Link textDecoration="none" _hover={{ textDecoration: "none" }}>
-							<Image
-								borderRadius="lg"
-								src={imageUrl}
-								alt="Abstract image interpretation of the project title"
-								objectFit="contain"
-							/>
-						</Link>
+						<ChakraNextImage
+							src={imageUrl}
+							alt="Abstract image interpretation of the project title"
+							objectFit="cover"
+							w="100%"
+							h="200px"
+							layout="fill"
+						/>
 					</Box>
 					<Box zIndex="1" width="100%" position="absolute" height="100%">
 						<Box

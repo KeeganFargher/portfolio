@@ -15,6 +15,7 @@ import MdxComponents from "../../components/MdxComponents";
 import DefaultContainer from "../../containers/DefaultContainer";
 import PostContainer from "../../containers/PostContainer";
 import personalInfo from "../../utils/constants/personalInfo";
+import ChakraNextImage from "../../components/ChakraNextImage";
 
 type ProductPageProps = {
 	metadata: Item<ProjectItem>;
@@ -108,7 +109,15 @@ const Project: NextPage<ProductPageProps> = ({ metadata, source }) => {
 						</Stack>
 
 						<Stack borderRadius="10px" minH="200px">
-							<Image src={imageUrl} borderRadius="10px" w="100%" h="auto" mx="auto" alt="" />
+							<ChakraNextImage
+								src={imageUrl}
+								borderRadius="10px"
+								w="100%"
+								h="400px"
+								mx="auto"
+								objectFit="cover"
+								alt=""
+							/>
 						</Stack>
 
 						<PostContainer>

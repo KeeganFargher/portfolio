@@ -1,11 +1,25 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import PlausibleProvider from "next-plausible";
 import customTheme from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle";
 
 function MyApp({ Component, pageProps }: AppProps) {
+	const [showChild, setShowChild] = useState(false);
+
+	useEffect(() => {
+		setShowChild(true);
+	}, []);
+
+	if (!showChild) {
+		return null;
+	}
+
+	if (typeof window === "undefined") {
+		return <></>;
+	}
+
 	return (
 		<PlausibleProvider
 			enabled
