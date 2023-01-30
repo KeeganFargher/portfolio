@@ -39,16 +39,13 @@ const AboutMe = () => {
 						Hey there 👋, I'm Keegan Fargher, I've always had an interest in computers, even from a
 						young age, and coding has been the natural progression of my passion.
 						<br />
-						<br />
-						I am currently working at Netgen Custom Software where we build backend systems / APIs
-						using .NET Core and mobile applications using React Native. In my 3 years at the
-						company, I have architected, developed, maintained, and led many successful projects,
-						some having 60k+ active users.
-						<br />
-						<br />
-						Since we are a small company, I often find myself filling many roles, whether that be
-						setting up a new CI / CD pipeline, deploying mobile apps to the stores, creating figma
-						designs or managing client relationships.
+						<br />I am a full-stack developer working in a small team. I designed and developed new
+						features for a payment processing system called{" "}
+						<Link href="https://sidpayment.com/" isExternal>
+							SID Instant EFT
+						</Link>
+						. I work on everything from modifying the database to backend coding and styling of the
+						websites. I am also involved in code reviews and sprint planning.
 						<br />
 						<br />
 						When I'm not coding, I enjoy gardening / growing things and cooking (
@@ -58,7 +55,7 @@ const AboutMe = () => {
 						)
 						<br />
 						<br />
-						If you want to learn a bit more about what I do on a day to day basis,{" "}
+						If you want to learn some of the fun things I've done so far while working here{" "}
 						<Button colorScheme="brand" onClick={onReadMoreClick} variant="link">
 							{isOpen ? "show less" : "show more"}
 						</Button>
@@ -68,47 +65,31 @@ const AboutMe = () => {
 								<List mt={3} spacing={3}>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Architected, developed, maintained, tested, led and deployed 10+ successful .NET
-										Core web applications and / or React Native (Expo) mobile apps
+										Implemented JWT authentication to ensure no one can intercept a transaction.
 									</ListItem>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Integrated Unit & Integration testing into the project work flow
+										Improved transaction performance for Investec bankers by +-50%.
 									</ListItem>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Setup a reusable admin portal template which included authentication (login,
-										forgot password, etc.), user management, audit logs, email and SMS sending which
-										sped up our projects by 3 weeks and reduced bugs significiantly
+										Implemented unit and integration tests for our payment processor.
 									</ListItem>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Mentored and trained new hires / juniors; delegating work and helping problem
-										solve
+										Noticed Kubernetes was killing pods in the middle of a transaction so I
+										implemented{" "}
+										<Link
+											href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"
+											isExternal>
+											Liveness, Readiness and Startup Probes
+										</Link>{" "}
+										to ensure a transaction runs to completion before the pod is killed.
 									</ListItem>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Setup CI / CD for projects using Azure Devops
-									</ListItem>
-									<ListItem>
-										<ListIcon as={FaArrowRight} color="brand.500" />
-										Setup coding workflow process using code reviews, pull requests, branches and CI
-										/ CD
-									</ListItem>
-									<ListItem>
-										<ListIcon as={FaArrowRight} color="brand.500" />
-										Improved our clients' system architecture by migrating from .NET Framework to
-										NET Core, integrating SOLID principals and implementing a 3-tier architecture
-										(Presentation, Application and Data tier)
-									</ListItem>
-									<ListItem>
-										<ListIcon as={FaArrowRight} color="brand.500" />
-										Integrated & maintained a self-hosted instance of Sentry using Docker / Docker
-										Compose
-									</ListItem>
-									<ListItem>
-										<ListIcon as={FaArrowRight} color="brand.500" />
-										Established and maintained client relationships
+										Fixed many long-standing bugs that improved transaction completion rate by
+										+-10%.
 									</ListItem>
 								</List>
 							)}

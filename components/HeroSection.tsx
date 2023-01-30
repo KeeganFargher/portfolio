@@ -70,11 +70,11 @@ function HeroSection() {
 						maxWidth={{ base: "100%", md: "800px" }}>
 						Working as a full stack software engineer with a focus on{" "}
 						<Box color="displayColor" as="span">
-							.NET Core
+							.NET Core and SQL
 						</Box>{" "}
-						and{" "}
+						with a sprinkle of{" "}
 						<Box color="displayColor" as="span">
-							React Native
+							React
 						</Box>{" "}
 					</Heading>
 				</SlideFade>
@@ -82,8 +82,8 @@ function HeroSection() {
 				<SlideFade dir="top" in transition={{ enter: { duration: 0.4, delay: 0.9 } }}>
 					<Text fontSize="display3" color="textSecondary">
 						🚀 Working at{" "}
-						<Link href="https://www.netgen.co.za/" isExternal>
-							Netgen Custom Software
+						<Link href="https://payfast.io/" isExternal>
+							Payfast
 						</Link>
 						<br />
 						🥕 Enjoying gardening and cooking when I'm not coding
