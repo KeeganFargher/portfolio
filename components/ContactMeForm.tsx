@@ -31,7 +31,7 @@ const FormValidation = Yup.object().shape({
 	name: Yup.string().required("Your name is required"),
 	message: Yup.string()
 		.required("A message is required")
-		.min(5, "Please type at least 5 characters"),
+		.min(2, "Please type at least 2 characters"),
 });
 
 const ContactMeForm: React.FC = () => {

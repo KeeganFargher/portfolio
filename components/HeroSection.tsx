@@ -11,18 +11,14 @@ import {
 	Icon,
 	Wrap,
 	WrapItem,
+	Tooltip,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaFile } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaFile } from "react-icons/fa";
 import React from "react";
-import { usePlausible } from "next-plausible";
 import personalInfo from "../utils/constants/personalInfo";
 
 function HeroSection() {
 	const [isLargerThan800] = useMediaQuery("800");
-
-	const logEvent = usePlausible();
-
-	const handleClick = (event: string) => logEvent(event);
 
 	return (
 		<>
@@ -82,11 +78,18 @@ function HeroSection() {
 				<SlideFade dir="top" in transition={{ enter: { duration: 0.4, delay: 0.9 } }}>
 					<Text fontSize="display3" color="textSecondary">
 						🚀 Working at{" "}
-						<Link href="https://payfast.io/" isExternal>
-							Payfast
+						<Link href="https://www.mrisoftware.com/za/" isExternal>
+							MRI Software
 						</Link>
 						<br />
-						🥕 Enjoying gardening and cooking when I'm not coding
+						🔧 Building{" "}
+						<Tooltip label="We track the price of products so you can make better informed decisions on what to buy">
+							<Link href="https://buck.cheap/" isExternal>
+								Buck Cheap
+							</Link>
+						</Tooltip>
+						<br />
+						🏃‍♀️ Enjoying running, hiking and gym when I'm not coding
 					</Text>
 				</SlideFade>
 
@@ -98,8 +101,7 @@ function HeroSection() {
 									leftIcon={<Icon as={FaLinkedin} color="brand.300" />}
 									position="static"
 									size={isLargerThan800 ? "md" : "sm"}
-									color="white"
-									onClick={() => handleClick("introduction_linkedin")}>
+									color="white">
 									LinkedIn
 								</Button>
 							</Link>
@@ -111,8 +113,7 @@ function HeroSection() {
 									transition="0.3s"
 									position="static"
 									size={isLargerThan800 ? "md" : "sm"}
-									color="white"
-									onClick={() => handleClick("introduction_email")}>
+									color="white">
 									Email
 								</Button>
 							</Link>
@@ -124,8 +125,7 @@ function HeroSection() {
 									transition="0.3s"
 									position="static"
 									size={isLargerThan800 ? "md" : "sm"}
-									color="white"
-									onClick={() => handleClick("introduction_cv")}>
+									color="white">
 									Resume
 								</Button>
 							</Link>

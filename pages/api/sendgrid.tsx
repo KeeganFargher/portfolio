@@ -16,7 +16,7 @@ async function sendEmail(req: NextApiRequest, res: NextApiResponse) {
 	try {
 		await sendgrid.send({
 			to: personalInfo.email,
-			from: "info@em2418.keeganfargher.co.za",
+			from: process.env.SENDGRID_FROM!,
 			subject: `Message from portfolio`,
 			html: `<div>${JSON.stringify(data)}}</div>`,
 		});

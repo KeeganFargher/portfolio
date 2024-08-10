@@ -14,7 +14,6 @@ import {
 	ListIcon,
 	ListItem,
 } from "@chakra-ui/react";
-import { usePlausible } from "next-plausible";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import personalInfo from "../utils/constants/personalInfo";
@@ -22,10 +21,7 @@ import personalInfo from "../utils/constants/personalInfo";
 const AboutMe = () => {
 	const { isOpen, onToggle } = useDisclosure();
 
-	const logEvent = usePlausible();
-
 	const onReadMoreClick = () => {
-		logEvent("about_me_read_more");
 		onToggle();
 	};
 
@@ -39,18 +35,21 @@ const AboutMe = () => {
 						Hey there 👋, I'm Keegan Fargher, I've always had an interest in computers, even from a
 						young age, and coding has been the natural progression of my passion.
 						<br />
-						<br />I am a full-stack developer working in a small team. I designed and developed new
-						features for a payment processing system called{" "}
-						<Link href="https://sidpayment.com/" isExternal>
-							SID Instant EFT
+						<br />
+						I'm a member of the team developing{" "}
+						<Link href="https://www.mrisoftware.com/za/products/property-central/" isExternal>
+							Property Central
 						</Link>
-						. I work on everything from modifying the database to backend coding and styling of the
-						websites. I am also involved in code reviews and sprint planning.
+						; a comprehensive property management solution. Most of my time is spent converting a 20
+						year old VB.NET WinForms desktop application into a modern application using .NET and
+						Angular; trying to unwrangle stored procs, VB code and database triggers.
+						<br />
+						The other 10% of my job is working on new features based on market needs.
 						<br />
 						<br />
-						When I'm not coding, I enjoy gardening / growing things and cooking (
-						<Link href={personalInfo.recipes} isExternal>
-							check out my recipes!
+						When I'm not coding, I enjoy hiking, running and gym (
+						<Link href={personalInfo.strava} isExternal>
+							join me on Strava 🏃
 						</Link>
 						)
 						<br />
@@ -65,31 +64,21 @@ const AboutMe = () => {
 								<List mt={3} spacing={3}>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Implemented JWT authentication to ensure no one can intercept a transaction.
+										Successfully converted tens of thousands of lines of VB, stored procedures,
+										database triggers and views into a modern .NET Core and Angular architecture.
 									</ListItem>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Improved transaction performance for Investec bankers by +-50%.
+										Resurrected our unit/integration testing framework from the grave, fixing
+										thousands of tests and integrating it into our CI pipelines.
 									</ListItem>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Implemented unit and integration tests for our payment processor.
+										Upgraded our Angular frontend from v12 to v18 in my spare time.
 									</ListItem>
 									<ListItem>
 										<ListIcon as={FaArrowRight} color="brand.500" />
-										Noticed Kubernetes was killing pods in the middle of a transaction so I
-										implemented{" "}
-										<Link
-											href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"
-											isExternal>
-											Liveness, Readiness and Startup Probes
-										</Link>{" "}
-										to ensure a transaction runs to completion before the pod is killed.
-									</ListItem>
-									<ListItem>
-										<ListIcon as={FaArrowRight} color="brand.500" />
-										Fixed many long-standing bugs that improved transaction completion rate by
-										+-10%.
+										Rewrote our Azure pipelines into modern YAML templates.
 									</ListItem>
 								</List>
 							)}

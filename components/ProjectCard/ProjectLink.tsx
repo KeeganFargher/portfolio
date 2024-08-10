@@ -6,16 +6,13 @@ import NextLink from "next/link";
 
 type ProjectLinkProps = {
 	id: string;
-	handleClick: (event: string) => void;
 	children: JSX.Element | JSX.Element[];
 };
 
-const ProjectLink: React.FC<ProjectLinkProps> = ({ handleClick, id, children }) => {
+const ProjectLink: React.FC<ProjectLinkProps> = ({ id, children }) => {
 	return (
 		<NextLink href="/projects/[id]/" as={`/projects/${id}`} passHref>
-			<Link href={`/projects/${id}`} onClick={() => handleClick("project_click")}>
-				{children}
-			</Link>
+			<Link href={`/projects/${id}`}>{children}</Link>
 		</NextLink>
 	);
 };

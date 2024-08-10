@@ -1,7 +1,6 @@
 /* eslint-disable react/no-children-prop */
 import {
 	Text,
-	Container,
 	Divider,
 	Heading,
 	Input,
