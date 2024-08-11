@@ -18,11 +18,11 @@ type HomePageProps = {
 const Home: NextPage<HomePageProps> = ({ data }) => {
 	return (
 		<>
-			<DefaultContainer>
-				<Head>
-					<Seo />
-				</Head>
+			<Head>
+				<Seo />
+			</Head>
 
+			<DefaultContainer>
 				<Stack
 					as="main"
 					spacing="250px"

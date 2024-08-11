@@ -18,7 +18,6 @@ export default class MyDocument extends NextDocument {
 					rel="stylesheet preload prefetch"
 				/>
 				<meta name="theme-color" content="black" />
-				<Head />
 				<body>
 					<Main />
 					<NextScript />
