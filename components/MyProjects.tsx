@@ -10,10 +10,6 @@ type MyProjectsProps = {
 };
 
 const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
-	const handleClick = (event: string) => {
-		// Log analytics
-	};
-
 	return (
 		<>
 			<Stack spacing={8} w="full">
@@ -24,7 +20,7 @@ const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
 								All Creative Works.
 							</Heading>
 							<NextLink href="/projects" passHref>
-								<Link onClick={() => handleClick("featuredprojects_explore more")}>
+								<Link>
 									<Text
 										display={{ base: "block", md: "none" }}
 										fontSize={{ base: "sm", md: "xl" }}
@@ -40,7 +36,7 @@ const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
 							Here's some of my projects that I have worked on.
 						</Text>
 						<NextLink href="/projects">
-							<Link onClick={() => handleClick("featuredprojects_explore more")}>
+							<Link>
 								<Text display={{ base: "none", md: "block" }} fontSize={{ base: "md", md: "xl" }}>
 									Explore more &rarr;
 								</Text>
@@ -61,7 +57,7 @@ const MyProjects: React.FC<MyProjectsProps> = ({ projects }) => {
 				</SimpleGrid>
 
 				<NextLink href="/projects">
-					<Link onClick={() => handleClick("featuredprojects_explore more")}>
+					<Link>
 						<Text textAlign="center" fontSize="2xl">
 							Explore more &rarr;
 						</Text>

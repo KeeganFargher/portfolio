@@ -8,7 +8,7 @@ const Seo = () => {
 			<meta name="keywords" content="keegan, keegans website" />
 			<meta
 				name="description"
-				content="Full stack .NET Core and React Native engineer working at Payfast"
+				content="Full stack .NET Core and React Native engineer working at MRI Software"
 			/>
 
 			<meta property="og:type" content="website" />
@@ -16,7 +16,7 @@ const Seo = () => {
 			<meta property="og:title" content="Keegan Fargher - Software Engineer" />
 			<meta
 				property="og:description"
-				content="Full stack .NET Core and React Native engineer working at Payfast"
+				content="Full stack .NET Core and React Native engineer working at MRI Software"
 			/>
 			<meta property="og:image" content="https://i.ibb.co/yNpWJ6y/asd.png" />
 
@@ -25,7 +25,7 @@ const Seo = () => {
 			<meta property="twitter:title" content="Keegan Fargher - Software Engineer" />
 			<meta
 				property="twitter:description"
-				content="Full stack .NET Core and React Native engineer working at Payfast"
+				content="Full stack .NET Core and React Native engineer working at MRI Software"
 			/>
 			<meta property="twitter:image" content="https://i.ibb.co/yNpWJ6y/asd.png" />
 		</>
